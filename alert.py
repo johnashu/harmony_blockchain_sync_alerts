@@ -16,8 +16,8 @@ loop_every_x_seconds = 3600 / 2  # 3600 seconds per hour
 status_notifications_per_day = 1
 
 # will use easynode.env file for VSTATS_BOT token, or add your token on line 20 below in the ''
-if os.path.exists('/home/serviceharmony/.easynode.env'):
-    load_dotenv('/home/serviceharmony/.easynode.env')
+if os.path.exists('/home/serviceharmony/harmony_blockchain_sync_alerts/.env'):
+    load_dotenv('/home/serviceharmony/harmony_blockchain_sync_alerts/.env')
     vstats_token = environ.get('VSTATS_BOT')
 else:
     vstats_token = 'token'
