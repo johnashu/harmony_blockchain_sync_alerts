@@ -33,14 +33,13 @@ while True:
        result_local_shard = run(local_shard, stdout=PIPE, stderr=PIPE, universal_newlines=True)
        local_data_shard = json.loads(result_local_shard.stdout)
          
-      
        # do math to see if we're in sync
        shard_0_blocks = literal_eval(local_data_shard['result']['beacon-chain-header']['number']) - literal_eval(remote_data_shard_0['result']['shard-chain-header']['number'])
        if OUR_SHARD > 0:
            shard_n_blocks = literal_eval(local_data_shard['result']['shard-chain-header']['number']) - literal_eval(remote_data_shard['result']['shard-chain-header']['number'])
        
        # if lower blocks on shard 0
-       if shard_0_blocks <= -10 or shard_0_blocks >= 10:
+       if shard_0_blocks <= -10 or shard_0_blocks >= 10: # Allow 10 block swing due to API lag between calls
            send_out_of_sync_alert('Shard 0 Behind',f"<strong>Server:</strong> {socket.gethostname()}\n<strong>Local Epoch {local_data_shard['result']['beacon-chain-header']['epoch']} Block:</strong> {literal_eval(local_data_shard['result']['beacon-chain-header']['number'])}\n<strong>Remote Epoch {remote_data_shard_0['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(remote_data_shard_0['result']['shard-chain-header']['number'])}\n<strong>Difference:</strong> {shard_0_blocks}")
            log.info(f"test2a")
        else:
@@ -50,14 +49,14 @@ while True:
        # only if not on shard 0.
        if OUR_SHARD > 0:
        # if lower blocks on shard 3
-           if shard_n_blocks <= -10 or shard_n_blocks >= 10:
+           if shard_n_blocks <= -10 or shard_n_blocks >= 10: # Allow 10 block swing due to API lag between calls
                send_out_of_sync_alert(f'Shard {OUR_SHARD} Behind',f"<strong>Server:</strong> {socket.gethostname()}\n<strong>Local Epoch {local_data_shard['result']['shard-chain-header']['epoch']} Block:</strong> {literal_eval(local_data_shard['result']['shard-chain-header']['number'])}\n<strong>Remote Epoch {remote_data_shard['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(remote_data_shard['result']['shard-chain-header']['number'])}\n<strong>Difference:</strong> {shard_n_blocks}")
            else:
                if COUNT % WORKING_NOTIFICATION_LOOP_COUNT == 0 or COUNT == 0:
                    send_synced_alert(f'Shard {OUR_SHARD} Synced -- {socket.gethostname()}',f"")
                    
     except Exception as e:
-        send_error_alert(e, "Error", f"")
+        send_error_alert(e, "Sync Script Error", f"Alert author")
         log.error(e)
         log.error( f"Please fix me!")
     
