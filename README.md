@@ -23,19 +23,19 @@ If you do not use validatortoolbox edit your token into line 20 in place of `tok
 ### Setup Service
 
 ```
-cat<<-EOF > /etc/systemd/system/blockchain_sync_alerts.service
+cat<<-EOF > /etc/systemd/system/harmony_blockchain_sync_alerts.service
 [Unit]
-Description=blockchain_sync_alerts daemon
+Description=harmony_blockchain_sync_alerts daemon
 After=network-online.target
 
 [Service]
 Type=simple
 Restart=always
 RestartSec=1
-User=<USER>
-WorkingDirectory=<PATH>
+User=serviceharmony
+WorkingDirectory=/home/serviceharmony/harmony_blockchain_sync_alerts
 ExecStart=python3 alert.py
-SyslogIdentifier=blockchain_sync_alerts
+SyslogIdentifier=harmony_blockchain_sync_alerts
 StartLimitInterval=0
 LimitNOFILE=65536
 LimitNPROC=65536
@@ -48,8 +48,8 @@ EOF
 
 ```
 sudo systemctl daemon-reload
-sudo chmod 755 /etc/systemd/system/blockchain_sync_alerts.service
-sudo systemctl enable blockchain_sync_alerts.service
-sudo service blockchain_sync_alerts start
-sudo service blockchain_sync_alerts status
+sudo chmod 755 /etc/systemd/system/harmony_blockchain_sync_alerts.service
+sudo systemctl enable harmony_blockchain_sync_alerts.service
+sudo service harmony_blockchain_sync_alerts start
+sudo service harmony_blockchain_sync_alerts status
 ```
