@@ -4,13 +4,13 @@
 This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then an alert will be sent. You may also setup a Status alert to occur a set number of times per 24 hours to confirm nodes are fully synced.
 
 Example out of sync alert:
-🚨 Shard 0 Behind -- master-server 🚨
-Local Epoch 793: 20320698
-Remote Epoch 796: 20441501
-Difference: -120803
+🚨 Shard 0 Behind -- master-server 🚨\n
+Local Epoch 793: 20320698\n
+Remote Epoch 796: 20441501\n
+Difference: -120803\n
 
-Example Status alert:
-🔶 Shard 3 Synced -- master-server 🔶
+Example Status alert:\n
+🔶 Shard 3 Synced -- master-server 🔶\n
 
 
 ### 1) Download the script
