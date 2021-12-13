@@ -45,7 +45,7 @@ while True:
            send_out_of_sync_alert(f'Shard 0 Behind -- {socket.gethostname()}',f"<strong>Local Epoch {local_data_shard['result']['beacon-chain-header']['epoch']}:</strong> {literal_eval(local_data_shard['result']['beacon-chain-header']['number'])}\n<strong>Remote Epoch {remote_data_shard_0['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(remote_data_shard_0['result']['shard-chain-header']['number'])}\n<strong>Difference:</strong> {shard_0_blocks}")
            log.info(f"test2a")
        else:
-           if STATUS_NOTIFICATIONS == True and (LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0):
+           if FULLY_SYNCED_NOTIFICATIONS == True and (LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0):
                send_synced_alert(f'Shard 0 Synced -- {socket.gethostname()}',f"")
        
        # only if not on shard 0.
@@ -54,7 +54,7 @@ while True:
            if shard_n_blocks <= -10 or shard_n_blocks >= 10: # Allow 10 block swing due to API lag between calls
                send_out_of_sync_alert(f'Shard {OUR_SHARD} Behind -- {socket.gethostname()}',f"<strong>Local Epoch {local_data_shard['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(local_data_shard['result']['shard-chain-header']['number'])}\n<strong>Remote Epoch {remote_data_shard['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(remote_data_shard['result']['shard-chain-header']['number'])}\n<strong>Difference:</strong> {shard_n_blocks}")
            else:
-               if STATUS_NOTIFICATIONS == True and (LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0):
+               if FULLY_SYNCED_NOTIFICATIONS == True and (LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0):
                    send_synced_alert(f'Shard {OUR_SHARD} Synced -- {socket.gethostname()}',f"")
                    
     except Exception as e:
