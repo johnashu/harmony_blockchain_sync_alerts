@@ -61,8 +61,8 @@ while True:
     if shard_0_blocks <= -10 or shard_0_blocks >= 10:
         sendWebhook('danger','Shard 0 Behind', f"From your server {socket.gethostname()}\nLocal Epoch {local_data_shard['result']['beacon-chain-header']['epoch']} Block: {literal_eval(local_data_shard['result']['beacon-chain-header']['number'])}\nRemote Epoch {remote_data_shard_0['result']['shard-chain-header']['epoch']} Block: {literal_eval(remote_data_shard_0['result']['shard-chain-header']['number'])}\nOff by {shard_0_blocks} blocks.")
     else:
-        if count % working_notification_loop_count == 0:
-            sendWebhook('info',f'Shard 0 Synced', f"")
+        if count % working_notification_loop_count == 0 or count == 0:
+            sendWebhook('info',f'Shard 0 Synced -- {socket.gethostname()}', f"")
     
     # only if not on shard 0.
     if ourShard > 0:
@@ -70,8 +70,8 @@ while True:
         if shard_n_blocks <= -10 or shard_n_blocks >= 10:
             sendWebhook('danger',f'Shard {ourShard} Behind', f"From your server {socket.gethostname()}\nLocal Epoch   {local_data_shard['result']['shard-chain-header']['epoch']} Block: {literal_eval(local_data_shard['result']['shard-chain-header']['number'])}\nRemote Epoch {remote_data_shard['result']['shard-chain-header']['epoch']} Block: {literal_eval(remote_data_shard['result']['shard-chain-header']['number'])}\nOff by {shard_n_blocks} blocks.")
         else:
-            if count % working_notification_loop_count == 0:
-                sendWebhook('info',f'Shard {ourShard} Synced', f"")
+            if count % working_notification_loop_count == 0 or count == 0:
+                sendWebhook('info',f'Shard {ourShard} Synced -- {socket.gethostname()}', f"")
     
     count += 1
     sleep(loop_every_x_seconds)
