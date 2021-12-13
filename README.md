@@ -27,7 +27,7 @@ Test the .env variables and script are running as expected. Run python3 alerts.p
 ### Setup Service
 Now setup script to run as a service in the background. 
 
-Run the following with root privileges
+Run the following with root privileges. Please note: add correct info for USER & PATH TO SCRIPT
 
 ```
 cat<<-EOF > /etc/systemd/system/harmony_blockchain_sync_alerts.service
@@ -39,8 +39,8 @@ After=network-online.target
 Type=simple
 Restart=always
 RestartSec=1
-User=serviceharmony
-WorkingDirectory=/home/serviceharmony/harmony_blockchain_sync_alerts
+User=<USER>
+WorkingDirectory=<PATH TO SCRIPT eg. /home/serviceharmony/harmony_blockchain_sync_alerts>
 ExecStart=python3 alert.py
 SyslogIdentifier=harmony_blockchain_sync_alerts
 StartLimitInterval=0
