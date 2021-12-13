@@ -2,18 +2,18 @@
 
 # vStats Alerts
 
-### 1) Get a token
-Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
-
-Save token as message on telegram will auto delete after 60 seconds.
-
-### 2) Download the script
+### 1) Download the script
 We suggest storing it in your home folder.
 
 ```
 cd ~/
 git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
+
+### 2) Get a token
+Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
+
+Save token as message on telegram will auto delete after 60 seconds.
 
 ### 3) Setup 
 Instal required packages if missing:
