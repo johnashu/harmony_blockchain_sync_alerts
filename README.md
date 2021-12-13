@@ -31,7 +31,7 @@ To update use `git pull`
 ### 2) Get a token
 Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
 
-Save token as message on telegram will auto delete after 60 seconds.
+Copy the token, as message on telegram will auto delete after 60 seconds.
 
 ### 3) Setup 
 Install required packages if missing:
