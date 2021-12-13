@@ -110,10 +110,10 @@ sudo service harmony_blockchain_sync_alerts status
 `python3 alert.py`
 
 
-### 6) Logs
+### Logs
 Check logs to make sure the script is running as expected. 
 
-### 5) Misc
+### Misc
 #### Start Service
 > sudo service harmony_blockchain_sync_alerts start
 #### Stop Service
