@@ -13,14 +13,18 @@ cd ~/
 git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
 
-### Setup token
-If you use validatortoolbox you can edit your ~/.easynode.env file to contain the following, replace `token` with your token:
-- `VSTATS_BOT='token'`
+### Setup 
+Add your token to the .env file. 
+Configure how all other variables in .env file. 
+To get working directory use pwd
 
-If you do not use validatortoolbox edit your token into line 20 in place of `token`:
-- `VSTATS_BOT='token'`
+### Test Script 
+Test the .env variables and script are running as expected. Run python3 alerts.py from the script directory. Alerts on screen AND vStatsBot should appear. 
 
 ### Setup Service
+Now setup script to run as a service in the background. 
+
+Run the following with root privileges
 
 ```
 cat<<-EOF > /etc/systemd/system/harmony_blockchain_sync_alerts.service
@@ -44,7 +48,7 @@ LimitNPROC=65536
 WantedBy=multi-user.target
 EOF
 ```
-
+Followed by:
 
 ```
 sudo systemctl daemon-reload
@@ -53,3 +57,6 @@ sudo systemctl enable harmony_blockchain_sync_alerts.service
 sudo service harmony_blockchain_sync_alerts start
 sudo service harmony_blockchain_sync_alerts status
 ```
+
+### Logs
+Check logs to make sure the script is running as expected. 
