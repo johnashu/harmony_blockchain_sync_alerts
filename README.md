@@ -47,7 +47,7 @@ Rename .env.example to .env and edit the following variables:
 
 > LOOP_EVERY_X_MINUTES: Define in minutes how often you would like the script to run
 
-> STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a status update ( assuming fully synced ). 0 = no status notifications
+> STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a status update ( assuming fully synced ). 0 = No status notifications
 
 > HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony_blockchain_sync_alerts
 
