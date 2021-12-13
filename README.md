@@ -1,6 +1,8 @@
 # Harmony Blockchain Sync Alerts
 
 # vStats Alerts
+This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then an alert will be sent. You may also setup Status alerts to occur a set number of times per 24 hours to confirm nodes are fully synced.
+
 
 ### 1) Download the script
 We suggest storing it in your home folder.
