@@ -16,6 +16,8 @@ git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
 
 ### Setup 
+Run pip3 install -r requirements.txt
+
 Rename .env.example to .env and edit the following variables:
 
 VSTATS_TOKEN: Add your token from vstats 
