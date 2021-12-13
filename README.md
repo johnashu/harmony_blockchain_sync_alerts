@@ -17,6 +17,7 @@ git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 
 ### 3) Setup 
 Instal required packages if missing:
+
 ```
 pip3 install -r requirements.txt
 ```
@@ -34,7 +35,15 @@ STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a sta
 HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony_blockchain_sync_alerts
 
 ### 4) Test Script 
-Test the .env variables and script is working as expected. Run python3 alerts.py from the script directory. Alerts on screen AND vStatsBot should appear. 
+Test the .env variables and script is working as expected. 
+
+Run the below from the script directory:
+
+```
+python3 alerts.py
+```
+
+Alerts on screen AND vStatsBot should appear. 
 
 ### 5) Setup Service
 Now setup script to run as a service in the background. 
