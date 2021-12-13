@@ -10,7 +10,7 @@ We suggest storing it in your home folder.
 
 ```
 cd ~/
-wget https://raw.githubusercontent.com/easy-node-one/harmony-validator-scripts/main/vStats/alert.py
+git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
 
 ### Setup token
