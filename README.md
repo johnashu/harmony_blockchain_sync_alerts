@@ -106,7 +106,9 @@ sudo service harmony_blockchain_sync_alerts status
 ### 5b) Alternative Setup - Tmux
 
 `tmux new-session -s syncscript`
+
 `cd ~/harmony_blockchain_sync_alerts/`
+
 `python3 alert.py`
 
 
