@@ -1,6 +1,6 @@
 # harmony_blockchain_sync_alerts
 
-# vStats alerts
+# vStats Alerts
 
 ### Get a token
 Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
