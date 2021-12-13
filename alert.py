@@ -2,9 +2,6 @@ import json
 import socket
 import requests
 import os
-import dotenv
-from dotenv import load_dotenv
-from os import environ
 from subprocess import Popen, PIPE, run
 from ast import literal_eval
 from time import sleep
