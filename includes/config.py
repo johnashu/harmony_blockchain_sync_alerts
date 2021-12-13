@@ -16,7 +16,7 @@ log = logging.getLogger()
 
 envs = Envs()
 
-COUNT = 0
+LOOP_COUNT = 0
 VSTATS_API = "https://vstats.one/api/serversync"
 OUR_SHARD = int(envs.SHARD)
 HARMONY_FOLDER = envs.HARMONY_FOLDER
