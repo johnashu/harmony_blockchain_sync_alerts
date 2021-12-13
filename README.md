@@ -29,13 +29,13 @@ Rename .env.example to .env and edit the following variables:
 
 > VSTATS_TOKEN: Add your token from vstats 
 
-SHARD: Add your chosen shard
+> SHARD: Add your chosen shard
 
-LOOP_EVERY_X_MINUTES: Define in minutes how often you would like the script to run
+> LOOP_EVERY_X_MINUTES: Define in minutes how often you would like the script to run
 
-STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a status update ( assuming fully synced ). 0 = no status notifications
+> STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a status update ( assuming fully synced ). 0 = no status notifications
 
-HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony_blockchain_sync_alerts
+> HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony_blockchain_sync_alerts
 
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
