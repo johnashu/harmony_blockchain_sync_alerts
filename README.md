@@ -32,7 +32,7 @@ Test the .env variables and script are running as expected. Run python3 alerts.p
 ### Setup Service
 Now setup script to run as a service in the background. 
 
-Run the following with root privileges. If you do not have access with root then you may setup a tmux session ( see below ).
+Run the following with root privileges. If you do not have access with root then you may setup a tmux session ( see: Alternative Setup - Tmux ).
 
 Please note: add correct info for <USER> & <PATH TO SCRIPT>
 
@@ -73,7 +73,6 @@ sudo service harmony_blockchain_sync_alerts status
 tmux new-session -s syncscript
 cd ~/harmony_blockchain_sync_alerts
 python3 alert.py
-
 ```
 
 
