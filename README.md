@@ -114,7 +114,7 @@ sudo service harmony_blockchain_sync_alerts status
 Check logs to make sure the script is running as expected. 
 
 ### Misc
-#### Start Service
+Start Service
 > sudo service harmony_blockchain_sync_alerts start
 #### Stop Service
 > sudo service harmony_blockchain_sync_alerts stop
