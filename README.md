@@ -16,15 +16,15 @@ git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ### Setup 
 Rename .env.example to .env
 
-Add your token: VSTATS_TOKEN
+VSTATS_TOKEN: Add your token from vstats 
 
-Add your chosen shard: SHARD
+SHARD: Add your chosen shard
 
-Define in minutes how often you would like the script to run: LOOP_EVERY_X_MINUTES
+LOOP_EVERY_X_MINUTES: Define in minutes how often you would like the script to run
 
-Define how often per 24 hours you would like a status update: STATUS_NOTIFICATIONS_PER_DAY
+STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a status update ( assuming fully synced )
 
-Add location of .hmy ( run pwd in .hmy location to get full path ): HARMONY_FOLDER
+HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony_blockchain_sync_alerts
 
 ### Test Script 
 Test the .env variables and script are running as expected. Run python3 alerts.py from the script directory. Alerts on screen AND vStatsBot should appear. 
@@ -47,7 +47,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=<USER>
-WorkingDirectory=<PATH TO SCRIPT eg. /home/serviceharmony/harmony_blockchain_sync_alerts>
+WorkingDirectory=<PATH TO SCRIPT>
 ExecStart=python3 alert.py
 SyslogIdentifier=harmony_blockchain_sync_alerts
 StartLimitInterval=0
