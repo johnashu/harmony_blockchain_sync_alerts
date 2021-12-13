@@ -34,7 +34,7 @@ Send the command `/serversynctoken` to the @vStatsBot on telegram to get your to
 Save token as message on telegram will auto delete after 60 seconds.
 
 ### 3) Setup 
-Instal required packages if missing:
+Install required packages if missing:
 
 <!-- `sudo apt update && sudo apt upgrade -y` -->
 ```
