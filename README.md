@@ -16,7 +16,7 @@ git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
 
 ### Setup 
-Rename .env.example to .env
+Rename .env.example to .env and edit the following variables:
 
 VSTATS_TOKEN: Add your token from vstats 
 
