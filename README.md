@@ -59,7 +59,7 @@ Test the .env variables and script is working as expected.
 Run the below from the script directory:
 
 ```
-python3 alerts.py
+python3 alert.py
 ```
 
 Alerts on screen AND vStatsBot should appear. Once successful, please cancel the script ( CTRL + C ) and move onto the next step.
