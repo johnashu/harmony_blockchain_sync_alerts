@@ -5,7 +5,7 @@
 ### Get a token
 Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
 
-### Download the alert.py script
+### Download the script
 We suggest storing it in your home folder.
 
 ```
