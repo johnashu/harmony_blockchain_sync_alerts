@@ -65,7 +65,7 @@ while True:
     # Add to count
     LOOP_COUNT += 1
     # Delay by x seconds
-    sleep(LOOP_EVERY_X_MINUTES * 60)
+    sleep(RUN_EVERY_X_MINUTES * 60)
     # Hot reload Env
     envs.load_envs()
     

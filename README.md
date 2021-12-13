@@ -1,7 +1,7 @@
 # Harmony Blockchain Sync Alerts
 
 # vStats Alerts
-This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then an alert will be sent. You may also setup a Status alert to occur a set number of times per 24 hours to confirm nodes are fully synced.
+This is an automated script that will periodically (RUN_EVERY_X_MINUTES) check your node block height against the blockchain. If there is a difference then an alert will be sent. You may also setup a Status alert to occur a set number of times per 24 hours to confirm nodes are fully synced.
 
 If you are installing this on a newly created server which is still syncing to the blockchain then you may wish to pause the script after its installed or lower the frequency of the checks (in the .env file). Otherwise you will get frequent out of sync alerts until your caught up again. 
 
@@ -47,7 +47,7 @@ Rename .env.example to .env and edit the following variables:
 
 > SHARD: Add your chosen shard
 
-> LOOP_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and if behind send an alert
+> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and if behind send an alert
 
 > FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
 
