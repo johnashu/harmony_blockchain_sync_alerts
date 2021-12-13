@@ -3,7 +3,7 @@
 # vStats alerts
 
 ### Get a token
-Send the command `/easynodetoken` to the @vStatsBot on telegram to get your token.
+Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
 
 ### Download the alert.py script
 We suggest storing it in your home folder.
@@ -14,9 +14,12 @@ git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
 
 ### Setup 
-Add your token to the .env file. 
-Configure how all other variables in .env file. 
-To get working directory use pwd
+Rename .env.example to .env
+Add your token: VSTATS_TOKEN
+Add your chosen shard: SHARD
+Define in minutes how often you would like the script to run: LOOP_EVERY_X_MINUTES
+Define how often per 24 hours you would like a status update: STATUS_NOTIFICATIONS_PER_DAY
+Add location of .hmy ( run pwd in .hmy location to get full path ): HARMONY_FOLDER
 
 ### Test Script 
 Test the .env variables and script are running as expected. Run python3 alerts.py from the script directory. Alerts on screen AND vStatsBot should appear. 
