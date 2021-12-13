@@ -8,6 +8,7 @@ We suggest storing it in your home folder.
 ```
 cd ~/
 git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
+cd harmony_blockchain_sync_alerts
 ```
 To update use `git pull`
 
