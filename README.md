@@ -15,10 +15,15 @@ git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 
 ### Setup 
 Rename .env.example to .env
+
 Add your token: VSTATS_TOKEN
+
 Add your chosen shard: SHARD
+
 Define in minutes how often you would like the script to run: LOOP_EVERY_X_MINUTES
+
 Define how often per 24 hours you would like a status update: STATUS_NOTIFICATIONS_PER_DAY
+
 Add location of .hmy ( run pwd in .hmy location to get full path ): HARMONY_FOLDER
 
 ### Test Script 
