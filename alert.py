@@ -16,7 +16,7 @@ from util.send_alerts import (
 while True:
     try: 
 
-       log.error( f"Run sync check")
+       log.info( f"Run sync check")
        # get remote stats for shard 0, then the #'d shard, if it's 0 just make it the same.
        remote_shard_0 = [f'{HARMONY_FOLDER}/hmy', 'blockchain', 'latest-headers', '--node=https://api.s0.t.hmny.io']
        result_remote_shard_0 = run(remote_shard_0, stdout=PIPE, stderr=PIPE, universal_newlines=True)
