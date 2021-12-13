@@ -62,7 +62,7 @@ Run the below from the script directory:
 python3 alerts.py
 ```
 
-Alerts on screen AND vStatsBot should appear. 
+Alerts on screen AND vStatsBot should appear. Once successful, please cancel the script ( CTRL + C ) and move onto the next step.
 
 ### 5) Setup Service
 Now setup script to run as a service in the background. 
