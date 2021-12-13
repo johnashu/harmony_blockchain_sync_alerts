@@ -27,7 +27,7 @@ Instal required packages if missing:
 
 Rename .env.example to .env and edit the following variables:
 
-VSTATS_TOKEN: Add your token from vstats 
+> VSTATS_TOKEN: Add your token from vstats 
 
 SHARD: Add your chosen shard
 
