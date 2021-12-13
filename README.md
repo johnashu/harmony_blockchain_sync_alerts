@@ -9,6 +9,7 @@ We suggest storing it in your home folder.
 cd ~/
 git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
+To update use `git pull`
 
 ### 2) Get a token
 Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
@@ -18,9 +19,11 @@ Save token as message on telegram will auto delete after 60 seconds.
 ### 3) Setup 
 Instal required packages if missing:
 
-```
-pip3 install -r requirements.txt
-```
+`sudo apt update && sudo apt upgrade -y`
+
+`apt install python3-pip`
+
+`pip3 install -r requirements.txt`
 
 Rename .env.example to .env and edit the following variables:
 
