@@ -2,12 +2,12 @@
 
 # vStats Alerts
 
-### Get a token
+### 1) Get a token
 Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
 
 Save token as message on telegram will auto delete after 60 seconds.
 
-### Download the script
+### 2) Download the script
 We suggest storing it in your home folder.
 
 ```
@@ -15,8 +15,11 @@ cd ~/
 git clone https://github.com/DavidWhicker/harmony_blockchain_sync_alerts.git
 ```
 
-### Setup 
-Run pip3 install -r requirements.txt
+### 3) Setup 
+Instal required packages if missing:
+```
+pip3 install -r requirements.txt
+```
 
 Rename .env.example to .env and edit the following variables:
 
@@ -30,10 +33,10 @@ STATUS_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like a sta
 
 HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony_blockchain_sync_alerts
 
-### Test Script 
+### 4) Test Script 
 Test the .env variables and script is working as expected. Run python3 alerts.py from the script directory. Alerts on screen AND vStatsBot should appear. 
 
-### Setup Service
+### 5) Setup Service
 Now setup script to run as a service in the background. 
 
 Run the following with root privileges. If you do not have access with root then you may setup a tmux session ( see: Alternative Setup - Tmux ).
@@ -72,13 +75,12 @@ sudo service harmony_blockchain_sync_alerts start
 sudo service harmony_blockchain_sync_alerts status
 ```
 
-### Alternative Setup - Tmux
+### 5b) Alternative Setup - Tmux
 ```
 tmux new-session -s syncscript
 cd ~/harmony_blockchain_sync_alerts
 python3 alert.py
 ```
 
-
-### Logs
+### 6) Logs
 Check logs to make sure the script is running as expected. 
