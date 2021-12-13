@@ -5,6 +5,8 @@
 ### Get a token
 Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
 
+Save token as message on telegram will auto delete after 60 seconds.
+
 ### Download the script
 We suggest storing it in your home folder.
 
