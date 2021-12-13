@@ -1,4 +1,4 @@
-# harmony_blockchain_sync_alerts
+# Harmony Blockchain Sync Alerts
 
 # vStats Alerts
 
