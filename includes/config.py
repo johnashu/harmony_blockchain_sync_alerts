@@ -27,8 +27,7 @@ STATUS_NOTIFICATIONS = False
 
 if STATUS_NOTIFICATIONS_PER_DAY > 0:
     STATUS_NOTIFICATIONS = True
-    # (mins in a day / LOOP_EVERY_X_MINUTES) = number of loops in 24 hours
-    # / STATUS_NOTIFICATIONS_PER_DAY  
+    # (mins in a day / LOOP_EVERY_X_MINUTES) = number of loops in 24 hours / STATUS_NOTIFICATIONS_PER_DAY  
     # = STATUS to be performed on a multiple of this number 
     STATUS_NOTIFICATION_LOOP_COUNT = (1440 / LOOP_EVERY_X_MINUTES) / STATUS_NOTIFICATIONS_PER_DAY # 1440 minutes per day #
     
