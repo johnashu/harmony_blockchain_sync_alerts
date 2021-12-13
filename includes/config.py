@@ -17,7 +17,7 @@ log = logging.getLogger()
 envs = Envs()
 
 COUNT = 0
-VSTATS_API = "https://vstats.one/api/easynode/stats"
+VSTATS_API = "https://vstats.one/api/serversync"
 OUR_SHARD = int(envs.SHARD)
 HARMONY_FOLDER = envs.HARMONY_FOLDER
 LOOP_EVERY_X_SECONDS = int(envs.LOOP_EVERY_X_SECONDS)
