@@ -3,6 +3,8 @@
 # vStats Alerts
 This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then an alert will be sent. You may also setup a Status alert to occur a set number of times per 24 hours to confirm nodes are fully synced.
 
+If you are installing this on a newly created server which is still syncing then you may which is stop the script or lower the frequency of the checks ( .env ) or you will be inundate with alerts.
+
 Example out of sync alert:
 ```
 🚨 Shard 0 Behind -- master-server 🚨
