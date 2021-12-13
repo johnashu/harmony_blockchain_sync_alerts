@@ -12,7 +12,7 @@ from time import sleep
 #editable
 harmonyFolder = '/home/serviceharmony/harmony'
 ourShard = 3
-delay_in_seconds = 3600 / 2  # 3600 seconds per hour
+loop_every_x_seconds = 3600 / 2  # 3600 seconds per hour
 status_notifications_per_day = 1
 
 # will use easynode.env file for VSTATS_BOT token, or add your token on line 20 below in the ''
@@ -28,7 +28,7 @@ def sendWebhook(alertType, subject, message):
     requests.request("GET", webhook_url_vstats)
     
     
-loops_per_24_hours = 86400 / delay_in_seconds # 86400 seconds per day
+loops_per_24_hours = 86400 / loop_every_x_seconds # 86400 seconds per day
 working_notification_loop_count = loops_per_24_hours / status_notifications_per_day 
 count = 0
 while True:
@@ -74,4 +74,4 @@ while True:
                 sendWebhook('info',f'Shard {ourShard} Synced', f"")
     
     count += 1
-    sleep(delay_in_seconds)
+    sleep(loop_every_x_seconds)
