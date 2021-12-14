@@ -46,7 +46,7 @@ while True:
            log.info(f"test2a")
        else:
            if FULLY_SYNCED_NOTIFICATIONS == True and (LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0):
-               send_synced_alert(f'Shard 0 Synced -- {socket.gethostname()}',f"",socket.gethostname())
+               send_synced_alert(f'Shard 0 Synced -- {socket.gethostname()}',f"",f'{socket.gethostname()}',0)
        
        # only if not on shard 0.
        if OUR_SHARD > 0:
@@ -55,7 +55,7 @@ while True:
                send_out_of_sync_alert(f'Shard {OUR_SHARD} Behind -- {socket.gethostname()}',f"<strong>Local Epoch {local_data_shard['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(local_data_shard['result']['shard-chain-header']['number'])}\n<strong>Remote Epoch {remote_data_shard['result']['shard-chain-header']['epoch']}:</strong> {literal_eval(remote_data_shard['result']['shard-chain-header']['number'])}\n<strong>Difference:</strong> {shard_n_blocks}")
            else:
                if FULLY_SYNCED_NOTIFICATIONS == True and (LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0):
-                   send_synced_alert(f'Shard {OUR_SHARD} Synced -- {socket.gethostname()}',f"",socket.gethostname())
+                   send_synced_alert(f'Shard {OUR_SHARD} Synced -- {socket.gethostname()}',f"",f'{socket.gethostname()}',0)
                    
     except Exception as e:
         send_error_alert(e, "Sync Script Error", f"Alert author")

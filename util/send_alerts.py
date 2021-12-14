@@ -26,10 +26,11 @@ def send_error_alert(e: str, subject: str, msg: str) -> None:
     send_to_vstats(subject, msg, "danger")
 
 
-def send_synced_alert(subject: str, msg: str, server: str) -> None:
+def send_synced_alert(subject: str, msg: str, server: str, difference: str) -> None:
     log.info("Sending SYNCED Alert..")
     subject = f"{subject}"
     msg = f"{msg}"
     server = f"{server}"
-    send_to_vstats(subject, msg,server, "info")
+    difference = f"{difference}"
+    send_to_vstats(subject, msg,server,difference, "info")
     
