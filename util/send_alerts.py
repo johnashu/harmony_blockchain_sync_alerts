@@ -3,12 +3,14 @@ from includes.config import envs, VSTATS_API
 from util.connect import connect_to_api
 
 
-def send_to_vstats(subject: str, msg: str, alert_type: str) -> None:
+def send_to_vstats(subject: str, msg: str, alert_type: str,server: str, difference: str ) -> None:
     j = {
         "api_token": envs.VSTATS_TOKEN,
         "alert-type": alert_type,
         "subject": subject,
         "message": msg,
+        "server": msg,
+        "difference": msg,
     }
     full, _, _ = connect_to_api("", VSTATS_API, "", j=j)
     log.info(full)
