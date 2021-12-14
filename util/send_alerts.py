@@ -32,7 +32,7 @@ def send_synced_alert(subject: str, msg: str, server: str, difference: str) -> N
     msg = f"{msg}"
     server = f"{server}"
     difference = f"{difference}"
-
+    alert_type = "info"
     #send_to_vstats(subject, msg,server,difference, "info")
     j = {
         "api_token": envs.VSTATS_TOKEN,
