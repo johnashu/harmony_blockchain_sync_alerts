@@ -4,7 +4,7 @@ from includes.config import (
     VSTATS_API,
     hostname,
     FULLY_SYNCED_NOTIFICATIONS,
-    STATUS_NOTIFICATION_LOOP_COUNT,
+    FULLY_SYNCED_NOTIFICATION_LOOP_COUNT,
     LOOP_COUNT,
     OUR_SHARD,
 )
@@ -60,13 +60,11 @@ def generic_error(e: str):
 
 
 def happy_alert(shard: int) -> None:
-    if FULLY_SYNCED_NOTIFICATIONS and (
-        LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0
-    ):
-        send_alert(
-            f"Shard {shard} Synced -- {hostname}",
-            f"",
-            "info",
-            log.info,
-            f"Shard {shard} Synced -- {hostname}",
-        )
+ 
+    send_alert(
+        f"Shard {shard} Synced -- {hostname}",
+        f"",
+        "info",
+        log.info,
+        f"Shard {shard} Synced -- {hostname}",
+    )

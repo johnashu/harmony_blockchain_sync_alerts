@@ -33,6 +33,6 @@ if FULLY_SYNCED_NOTIFICATIONS_PER_DAY > 0:
     FULLY_SYNCED_NOTIFICATIONS = True
     # (mins in a day / RUN_EVERY_X_MINUTES) = number of loops in 24 hours / FULLY_SYNCED_NOTIFICATIONS_PER_DAY
     # = STATUS to be performed on a multiple of this number
-    STATUS_NOTIFICATION_LOOP_COUNT = int(
+    FULLY_SYNCED_NOTIFICATION_LOOP_COUNT = int(
         (1440 / RUN_EVERY_X_MINUTES) / FULLY_SYNCED_NOTIFICATIONS_PER_DAY
     )  # 1440 minutes per day #

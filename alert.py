@@ -36,7 +36,8 @@ while True:
                 0, local_data_shard, remote_data_shard_0, shard_0_blocks, _type="beacon"
             )
         else:
-            happy_alert(0)
+            if FULLY_SYNCED_NOTIFICATIONS and ( LOOP_COUNT % FULLY_SYNCED_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0 ):
+                happy_alert(0)
 
         # only if not on shard 0.
         if OUR_SHARD > 0:
@@ -48,7 +49,8 @@ while True:
                     OUR_SHARD, local_data_shard, remote_data_shard, shard_n_blocks
                 )
             else:
-                happy_alert(OUR_SHARD)
+                if FULLY_SYNCED_NOTIFICATIONS and ( LOOP_COUNT % FULLY_SYNCED_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0 ):
+                    happy_alert(OUR_SHARD)
 
     except Exception as e:
         generic_error(e)
@@ -59,5 +61,6 @@ while True:
     LOOP_COUNT += 1
     # Delay by x seconds
     sleep(RUN_EVERY_X_MINUTES * 60)
+    #sleep(2)
     # Hot reload Env
     envs.load_envs()
