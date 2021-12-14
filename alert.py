@@ -1,8 +1,13 @@
-import socket
 from time import sleep
 
-from util.send_alerts import send_alert, build_error_message
+from util.send_alerts import (
+    generic_error,
+    happy_alert,
+    send_alert,
+    build_send_error_message,
+)
 from util.commands import *
+
 
 while True:
     try:
@@ -30,27 +35,11 @@ while True:
         if (
             shard_0_blocks <= -10 or shard_0_blocks >= 10
         ):  # Allow 10 block swing due to API lag between calls
-            err_msg = build_error_message(
+            build_send_error_message(
                 local_data_shard, remote_data_shard_0, shard_0_blocks, _type="beacon"
             )
-            send_alert(
-                f"Shard 0 Behind -- {socket.gethostname()}",
-                err_msg,
-                "danger",
-                log.error,
-                "Sending OUT OF SYNC Alert..",
-            )
         else:
-            if FULLY_SYNCED_NOTIFICATIONS and (
-                LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0
-            ):
-                send_alert(
-                    f"Shard 0 Synced -- {socket.gethostname()}",
-                    f"",
-                    "info",
-                    log.info,
-                    f"Shard 0 Synced -- {socket.gethostname()}",
-                )
+            happy_alert()
 
         # only if not on shard 0.
         if OUR_SHARD > 0:
@@ -58,36 +47,14 @@ while True:
             if (
                 shard_n_blocks <= -10 or shard_n_blocks >= 10
             ):  # Allow 10 block swing due to API lag between calls
-                err_msg = build_error_message(
+                build_send_error_message(
                     local_data_shard, remote_data_shard, shard_n_blocks
                 )
-                send_alert(
-                    f"Shard {OUR_SHARD} Behind -- {socket.gethostname()}",
-                    err_msg,
-                    "danger",
-                    log.error,
-                    "Sending OUT OF SYNC Alert..",
-                )
             else:
-                if FULLY_SYNCED_NOTIFICATIONS and (
-                    LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0
-                ):
-                    send_alert(
-                        f"Shard {OUR_SHARD} Synced -- {socket.gethostname()}",
-                        f"",
-                        "info",
-                        log.info,
-                        "Sending SYNCED Alert..",
-                    )
+                happy_alert()
 
     except Exception as e:
-        send_alert(
-            "Sync Script Error",
-            f"Alert author\n\nError Message :: {e}",
-            "danger",
-            log.error,
-            "Sending ERROR Alert..",
-        )
+        generic_error(e)
         log.error(e)
         log.error(f"Please fix me!")
 
