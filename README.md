@@ -1,7 +1,7 @@
 # Harmony Blockchain Sync Alerts
 
 # vStats Alerts
-This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then a OUT OF SYNC ALERT will be sent. You may also setup an IN SYNC ALERT to occur a set number of times per 24 hours to confirm nodes are fully synced.
+This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then a OUT OF SYNC ALERT will be sent. You may also setup an FULLY SYNCED ALERT to occur a set number of times per 24 hours to confirm nodes are fully synced.
 
 If you are installing this on a newly created server which is still syncing to the blockchain then you may wish to pause the script after its installed or lower the frequency of the checks (in the .env file). Otherwise you will get frequent out of sync alerts until your caught up again. 
 
@@ -13,7 +13,7 @@ Remote Epoch 796: 20441501
 Difference: -120803
 ```
 
-Example IN SYNC ALERT:
+Example FULLY SYNCED ALERT:
 ```
 🔶 Shard 3 Synced -- master-server 🔶
 ```
