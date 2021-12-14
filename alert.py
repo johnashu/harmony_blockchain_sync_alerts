@@ -37,7 +37,7 @@ while True:
                 local_data_shard, remote_data_shard_0, shard_0_blocks, _type="beacon"
             )
         else:
-            happy_alert()
+            happy_alert(0)
 
         # only if not on shard 0.
         if OUR_SHARD > 0:
@@ -49,7 +49,7 @@ while True:
                     local_data_shard, remote_data_shard, shard_n_blocks
                 )
             else:
-                happy_alert()
+                happy_alert(OUR_SHARD)
 
     except Exception as e:
         generic_error(e)

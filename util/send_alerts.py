@@ -32,10 +32,10 @@ def send_alert(
     send_to_vstats(subject, msg, _type)
 
 
-def build_send_error_message(*a, **kw) -> None:
+def build_send_error_message(shard: int, *a, **kw) -> None:
     err_msg = build_error_message(*a, **kw)
     send_alert(
-        f"Shard {OUR_SHARD} Behind -- {hostname}",
+        f"Shard {shard} Behind -- {hostname}",
         err_msg,
         "danger",
         log.error,
