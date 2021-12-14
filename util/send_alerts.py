@@ -39,7 +39,7 @@ def build_send_error_message(shard: int, *a, **kw) -> None:
         err_msg,
         "danger",
         log.error,
-        "Sending OUT OF SYNC Alert..",
+        f"Shard {shard} Behind -- {hostname}",
     )
 
 
