@@ -45,7 +45,7 @@ while True:
                 shard_n_blocks <= -10 or shard_n_blocks >= 10
             ):  # Allow 10 block swing due to API lag between calls
                 build_send_error_message(
-                   OUR_SHARD, local_data_shard, remote_data_shard, shard_n_blocks
+                    OUR_SHARD, local_data_shard, remote_data_shard, shard_n_blocks
                 )
             else:
                 happy_alert(OUR_SHARD)
