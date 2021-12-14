@@ -47,11 +47,12 @@ Rename .env.example to .env and edit the following variables:
 
 > SHARD: Add your chosen shard
 
-> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and if behind send an alert
+> HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
+
+> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and send an alert if behind
 
 > FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
 
-> HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
 
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
