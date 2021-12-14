@@ -4,7 +4,7 @@ import socket
 
 hostname = socket.gethostname()
 
-from config_utils import *
+from includes.config_utils import *
 
 create_data_path((""))
 file_handler = logging.FileHandler(filename=os.path.join("logs", "data.log"))
