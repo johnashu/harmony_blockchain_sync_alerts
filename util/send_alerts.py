@@ -26,11 +26,11 @@ def send_error_alert(e: str, subject: str, msg: str) -> None:
     send_to_vstats(subject, msg, "danger")
 
 
-def send_synced_alert(subject: str, msg: str, server: str, difference: str) -> None:
+def send_synced_alert(subject: str, msg: str, servername: str, difference: str) -> None:
     log.info("Sending SYNCED Alert..")
     subject = f"{subject}"
     msg = f"{msg}"
-    server = f"{server}"
+    servername = f"{servername}"
     difference = f"{difference}"
     alert_type = "info"
     #send_to_vstats(subject, msg,server,difference, "info")
@@ -40,7 +40,7 @@ def send_synced_alert(subject: str, msg: str, server: str, difference: str) -> N
         "subject": subject,
         "message": msg,
         "difference": difference,
-        "server": server,
+        "servername": servername,
     }
     full, _, _ = connect_to_api("", VSTATS_API, "", j=j)
     log.info(full)
