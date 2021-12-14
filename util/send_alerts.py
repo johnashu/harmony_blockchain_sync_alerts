@@ -46,7 +46,7 @@ def build_send_error_message(*a, **kw) -> None:
 def build_error_message(
     local_data_shard: dict, remote_data_shard: dict, blocks: int, _type: str = "shard"
 ):
-    return f"<strong>Local Epoch {local_data_shard[f'{_type}-chain-header']['epoch']}:</strong> {local_data_shard[f'{_type}-chain-header']['number']}\n<strong>Remote Epoch {remote_data_shard['shard-chain-header']['epoch']}:</strong> {remote_data_shard['shard-chain-header']['number']}\n<strong>Difference:</strong> {blocks}"
+    return f"<strong>Local Epoch {local_data_shard[f'{_type}-chain-header']['epoch']}:</strong> {local_data_shard[f'{_type}-chain-header']['viewID']}\n<strong>Remote Epoch {remote_data_shard['shard-chain-header']['epoch']}:</strong> {remote_data_shard['shard-chain-header']['viewID']}\n<strong>Difference:</strong> {blocks}"
 
 
 def generic_error(e: str):
