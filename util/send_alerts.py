@@ -59,14 +59,14 @@ def generic_error(e: str):
     )
 
 
-def happy_alert() -> None:
+def happy_alert(shard: int) -> None:
     if FULLY_SYNCED_NOTIFICATIONS and (
         LOOP_COUNT % STATUS_NOTIFICATION_LOOP_COUNT == 0 or LOOP_COUNT == 0
     ):
         send_alert(
-            f"Shard 0 Synced -- {hostname}",
+            f"Shard {shard} Synced -- {hostname}",
             f"",
             "info",
             log.info,
-            f"Shard 0 Synced -- {hostname}",
+            f"Shard {shard} Synced -- {hostname}",
         )

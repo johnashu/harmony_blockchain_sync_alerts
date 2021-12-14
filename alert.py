@@ -3,7 +3,6 @@ from time import sleep
 from util.send_alerts import (
     generic_error,
     happy_alert,
-    send_alert,
     build_send_error_message,
 )
 from util.commands import *
@@ -34,7 +33,7 @@ while True:
             shard_0_blocks <= -10 or shard_0_blocks >= 10
         ):  # Allow 10 block swing due to API lag between calls
             build_send_error_message(
-                local_data_shard, remote_data_shard_0, shard_0_blocks, _type="beacon"
+                0, local_data_shard, remote_data_shard_0, shard_0_blocks, _type="beacon"
             )
         else:
             happy_alert(0)
@@ -46,7 +45,7 @@ while True:
                 shard_n_blocks <= -10 or shard_n_blocks >= 10
             ):  # Allow 10 block swing due to API lag between calls
                 build_send_error_message(
-                    local_data_shard, remote_data_shard, shard_n_blocks
+                   OUR_SHARD, local_data_shard, remote_data_shard, shard_n_blocks
                 )
             else:
                 happy_alert(OUR_SHARD)
