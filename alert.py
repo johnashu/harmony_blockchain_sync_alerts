@@ -13,16 +13,14 @@ while True:
     try:
         log.info(f"Run sync check")
         # get remote stats for shard 0, then the #'d shard, if it's 0 just make it the same.
-        shard_0_res, remote_data_shard_0 = process_command(latest_headers(s=0))
+        _, remote_data_shard_0 = process_command(latest_headers(s=0))
         if OUR_SHARD > 0:
-            our_shard_res, remote_data_shard = process_command(
-                latest_headers(s=OUR_SHARD)
-            )
+            _, remote_data_shard = process_command(latest_headers(s=OUR_SHARD))
         else:
             remote_data_shard = remote_data_shard_0
 
         # get local server stats
-        local_res, local_data_shard = process_command(latest_headers())
+        _, local_data_shard = process_command(latest_headers())
 
         # do math to see if we're in sync
         shard_0_blocks = do_maths_on_blocks(
