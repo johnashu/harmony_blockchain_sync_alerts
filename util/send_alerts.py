@@ -13,22 +13,17 @@ def send_to_vstats(subject: str, msg: str, alert_type: str) -> None:
     full, _, _ = connect_to_api("", VSTATS_API, "", j=j)
     log.info(full)
 
-def send_out_of_sync_alert(subject: str, msg: str) -> None:
-    log.error("Sending OUT OF SYNC Alert..")
+
+def send_alert(
+    subject: str, msg: str, _type: str, log_level: log, log_msg: str
+) -> None:
+    log_level(log_msg)
     subject = f"{subject}"
     msg = f"{msg}"
-    send_to_vstats(subject, msg, "danger")
-    
-def send_error_alert(e: str, subject: str, msg: str) -> None:
-    log.error("Sending ERROR Alert..")
-    subject = f"{subject}"
-    msg = f"{msg}"
-    send_to_vstats(subject, msg, "danger")
+    send_to_vstats(subject, msg, _type)
 
 
-def send_synced_alert(subject: str, msg: str) -> None:
-    log.info("Sending SYNCED Alert..")
-    subject = f"{subject}"
-    msg = f"{msg}"
-    send_to_vstats(subject, msg, "info")
-    
+def build_error_message(
+    local_data_shard: dict, remote_data_shard: dict, blocks: int, _type: str = "shard"
+):
+    return f"<strong>Local Epoch {local_data_shard[f'{_type}-chain-header']['epoch']}:</strong> {local_data_shard[f'{_type}-chain-header']['number']}\n<strong>Remote Epoch {remote_data_shard['shard-chain-header']['epoch']}:</strong> {remote_data_shard['shard-chain-header']['number']}\n<strong>Difference:</strong> {blocks}"
