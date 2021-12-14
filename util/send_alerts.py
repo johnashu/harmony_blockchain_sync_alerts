@@ -39,6 +39,8 @@ def send_synced_alert(subject: str, msg: str, server: str, difference: str) -> N
         "alert-type": alert_type,
         "subject": subject,
         "message": msg,
+        "difference": difference,
+        "server": server,
     }
     full, _, _ = connect_to_api("", VSTATS_API, "", j=j)
     log.info(full)
