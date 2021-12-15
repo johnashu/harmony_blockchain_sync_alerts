@@ -34,3 +34,11 @@ if envs.FULLY_SYNCED_NOTIFICATIONS_PER_DAY > 0:
     # this can potentially evaluate to 0. Sanitise this value.
     if FULLY_SYNCED_NOTIFICATION_LOOP_COUNT <= 0:
         FULLY_SYNCED_NOTIFICATION_LOOP_COUNT = 1
+
+alerts_context = dict(
+    envs=envs,
+    LOOP_COUNT=0,
+    hostname=hostname,
+    FULLY_SYNCED_NOTIFICATION_LOOP_COUNT=FULLY_SYNCED_NOTIFICATION_LOOP_COUNT,
+    FULLY_SYNCED_NOTIFICATIONS=FULLY_SYNCED_NOTIFICATIONS,
+)

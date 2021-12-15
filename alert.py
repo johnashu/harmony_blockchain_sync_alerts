@@ -69,16 +69,6 @@ def run():
 
 if __name__ == "__main__":
 
-    alerts = Alerts(
-        **dict(
-            envs=envs,
-            LOOP_COUNT=0,
-            hostname=hostname,
-            FULLY_SYNCED_NOTIFICATION_LOOP_COUNT=FULLY_SYNCED_NOTIFICATION_LOOP_COUNT,
-            FULLY_SYNCED_NOTIFICATIONS=FULLY_SYNCED_NOTIFICATIONS,
-            VSTATS_API=VSTATS_API,
-            connect_to_api=connect_to_api,
-        )
-    )
+    alerts = Alerts(VSTATS_API, connect_to_api, **alerts_context)
 
     run()

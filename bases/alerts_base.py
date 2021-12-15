@@ -2,7 +2,9 @@ import logging as log
 
 
 class AlertsBase:
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, VSTATS_API: str, connect_to_api: object, **kwargs) -> None:
+        self.VSTATS_API = VSTATS_API
+        self.connect_to_api = connect_to_api
         self.__dict__.update(kwargs)
 
     def send_to_vstats(self, subject: str, msg: str, alert_type: str) -> None:
