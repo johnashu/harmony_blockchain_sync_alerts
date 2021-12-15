@@ -18,10 +18,9 @@ def run():
                 if envs.SHARD == 0:
                     remote_data_shard = remote_data_shard_0                    
                 else:
-                    res, remote_data_shard = process_command(latest_headers(s=envs.SHARD))
-                    
+                    res, remote_data_shard = process_command(latest_headers(s=envs.SHARD))                    
                 if not res:
-                    alerts.generic_error(remote_data_shard_0)
+                    alerts.generic_error(remote_data_shard)
                 else:  
                     # get local server stats
                     _, local_data_shard = process_command(latest_headers())
