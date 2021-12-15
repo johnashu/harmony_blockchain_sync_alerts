@@ -20,12 +20,16 @@ def run():
             # get local server stats
             _, local_data_shard = process_command(latest_headers())
 
-            # do math to see if we're in sync
-            shard_0_blocks = do_maths_on_blocks(
-                local_data_shard, remote_data_shard_0, _type="beacon"
+            # do math to see if we're in sync - Change to int to throw error and send error alert with the message received.
+            shard_0_blocks = int(
+                do_maths_on_blocks(
+                    local_data_shard, remote_data_shard_0, _type="beacon"
+                )
             )
             if envs.SHARD > 0:
-                shard_n_blocks = do_maths_on_blocks(local_data_shard, remote_data_shard)
+                shard_n_blocks = int(
+                    do_maths_on_blocks(local_data_shard, remote_data_shard)
+                )
 
             # if lower blocks on shard 0
             if (
@@ -68,7 +72,13 @@ def run():
 
 
 if __name__ == "__main__":
-
     alerts = Alerts(VSTATS_API, connect_to_api, **alerts_context)
-
     run()
+
+    # alerts.send_alert(
+    #     "TEST",
+    #     f'TEST ',
+    #     "danger",
+    #     log.info,
+    #     f"TEST",
+    # )

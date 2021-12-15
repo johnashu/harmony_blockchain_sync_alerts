@@ -21,15 +21,22 @@ class Alerts(AlertsBase):
         blocks: int,
         _type: str = "shard",
     ):
-        return f"<strong>Local Epoch {local_data_shard[f'{_type}-chain-header']['epoch']}:</strong> {local_data_shard[f'{_type}-chain-header']['viewID']}\n<strong>Remote Epoch {remote_data_shard['shard-chain-header']['epoch']}:</strong> {remote_data_shard['shard-chain-header']['viewID']}\n<strong>Difference:</strong> {blocks}"
+        try:
+            html = f"<strong>Local Epoch {local_data_shard[f'{_type}-chain-header']['epoch']}:</strong> {local_data_shard[f'{_type}-chain-header']['viewID']}\n<strong>Remote Epoch {remote_data_shard['shard-chain-header']['epoch']}:</strong> {remote_data_shard['shard-chain-header']['viewID']}\n<strong>Difference:</strong> {blocks}"
+        except KeyError as e:
+            msg = f"Problem finding KEY in [ build_error_message ] {e}\nlocal_data_shard  ::  {local_data_shard}\nremote_data_shard  ::  {remote_data_shard}"
+            log.error(msg)
+            return msg
+        return html
 
     def generic_error(self, e: str):
         self.send_alert(
             "Sync Script Error",
-            f"Alert author\n\nError Message :: {e}",
+            e,
+            # f"Alert author\n\nError Message :: {e}",
             "danger",
             log.error,
-            "Sending ERROR Alert..",
+            f"Sending ERROR Alert..ERROR  ::  {e}",
         )
 
     def happy_alert(self, shard: int):

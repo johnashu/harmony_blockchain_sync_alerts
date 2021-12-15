@@ -26,6 +26,13 @@ def latest_headers(s: int = -1) -> list:
 def do_maths_on_blocks(
     local_data_shard: dict, remote_data_shard: dict, _type: str = "shard"
 ) -> int:
-    return int(local_data_shard[f"{_type}-chain-header"]["viewID"]) - int(
-        remote_data_shard[f"shard-chain-header"]["viewID"]
-    )
+    try:
+        result = int(local_data_shard[f"{_type}-chain-header"]["viewID"]) - int(
+            remote_data_shard[f"shard-chain-header"]["viewID"]
+        )
+    except KeyError as e:
+        msg = f"Problem finding KEY in [ do_maths_on_blocks ] {e}\nlocal_data_shard  ::  {local_data_shard}\nremote_data_shard  ::  {remote_data_shard}"
+        log.error(msg)
+        return msg
+
+    return result

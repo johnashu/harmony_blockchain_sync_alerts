@@ -1,0 +1,82 @@
+15-12-2021 17:14:17 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:14:18 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:14:44 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:14:45 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:17:24 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:17:25 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:17:25 [INFO] <send_alert> TEST
+15-12-2021 17:17:26 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:18:11 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:18:12 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:18:12 [INFO] <send_alert> TEST
+15-12-2021 17:18:13 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:18:46 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:18:47 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:18:47 [INFO] <send_alert> TEST
+15-12-2021 17:18:48 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:19:09 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:19:11 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:19:11 [INFO] <send_alert> TEST
+15-12-2021 17:19:12 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:21:23 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:21:24 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:21:24 [INFO] <send_alert> TEST
+15-12-2021 17:21:25 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:21:31 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:21:32 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:21:32 [INFO] <send_alert> TEST
+15-12-2021 17:21:33 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:21:55 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:21:57 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:21:57 [INFO] <send_alert> TEST
+15-12-2021 17:21:58 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:23:49 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:23:50 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:25:06 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks> 
+local_data_shard  ::  
+15-12-2021 17:25:07 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:27:44 [INFO] <send_alert> TEST
+15-12-2021 17:27:45 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:28:25 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks> 
+local_data_shard  ::  
+15-12-2021 17:28:26 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:29:05 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks> 
+local_data_shard  ::  
+15-12-2021 17:29:07 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:29:38 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:29:39 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:29:45 [ERROR] <send_alert> Sending ERROR Alert..
+15-12-2021 17:29:46 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:30:41 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks> 
+local_data_shard  ::  
+15-12-2021 17:30:43 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:30:49 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks> 
+local_data_shard  ::  
+15-12-2021 17:30:50 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:31:03 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard  ::  '
+15-12-2021 17:31:05 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:31:15 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard  ::  '
+15-12-2021 17:31:16 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:31:25 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard  ::  '
+15-12-2021 17:31:26 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:31:42 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard  ::  '
+15-12-2021 17:31:43 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:33:13 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard  ::  '
+15-12-2021 17:33:14 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:33:22 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard   '
+15-12-2021 17:33:23 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:34:03 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in <do_maths_on_blocks> \nlocal_data_shard   '
+15-12-2021 17:34:04 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:35:44 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks> 
+local_data_shard   
+15-12-2021 17:35:45 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:35:53 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks>local_data_shard   
+15-12-2021 17:35:54 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:36:02 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks>local_data_shard   
+15-12-2021 17:36:03 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:36:19 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in <do_maths_on_blocks>local_data_shard   
+15-12-2021 17:36:20 [INFO] <send_to_vstats> {'error': 'Failed to send message'}
+15-12-2021 17:36:55 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  Problem finding KEY in [ do_maths_on_blocks] local_data_shard   
+15-12-2021 17:36:57 [INFO] <send_to_vstats> {'success': 'Message sent'}
+15-12-2021 17:37:44 [ERROR] <send_alert> Sending ERROR Alert..ERROR  ::  invalid literal for int() with base 10: 'Problem finding KEY in [ do_maths_on_blocks] local_data_shard   '
+15-12-2021 17:37:46 [INFO] <send_to_vstats> {'success': 'Message sent'}
