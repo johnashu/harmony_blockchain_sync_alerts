@@ -2,7 +2,7 @@ import requests
 import json
 
 from util.tools import flatten
-from includes.config import *
+import logging as log
 
 
 def connect_to_api(
