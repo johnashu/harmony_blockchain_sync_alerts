@@ -66,6 +66,7 @@ def run():
         # Hot reload Env
         envs.load_envs()
 
+
 if __name__ == "__main__":
 
     alerts = Alerts(
