@@ -4,9 +4,8 @@ from includes.config import (
     VSTATS_API,
     hostname,
     FULLY_SYNCED_NOTIFICATIONS,
-    FULLY_SYNCED_NOTIFICATION_LOOP_COUNT,
-    LOOP_COUNT,
-    OUR_SHARD,
+    times,
+    datetime
 )
 
 from util.connect import connect_to_api
@@ -39,7 +38,7 @@ def build_send_error_message(shard: int, *a, **kw) -> None:
         err_msg,
         "danger",
         log.error,
-        f"Shard {shard} Behind -- {hostname}",
+        "Sending OUT OF SYNC Alert..",
     )
 
 
@@ -59,12 +58,28 @@ def generic_error(e: str):
     )
 
 
-def happy_alert(shard: int) -> None:
- 
-    send_alert(
-        f"Shard {shard} Synced -- {hostname}",
-        f"",
-        "info",
-        log.info,
-        f"Shard {shard} Synced -- {hostname}",
-    )
+def happy_alert(shard: int, times_sent) -> None:
+    times_sent, send_happy_alert = send_synced_notification(times_sent)
+    if FULLY_SYNCED_NOTIFICATIONS and send_happy_alert:
+        send_alert(
+            f"Shard {shard} Synced -- {hostname}",
+            f"",
+            "info",
+            log.info,
+            f"Shard {shard} Synced -- {hostname}",
+        )
+    return times_sent
+
+
+def send_synced_notification(times_sent: dict) -> tuple:
+    send_happy_alert = False
+    now = datetime.datetime.now()    
+    h = now.hour
+    if h in times and not times_sent[h]:
+        times_sent[h] = True
+        send_happy_alert = True
+        if all([times_sent[x] for x in times_sent]):
+            times_sent = {
+                    x: False for x in times
+                }
+    return times_sent, send_happy_alert

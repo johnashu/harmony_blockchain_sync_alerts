@@ -1,7 +1,7 @@
 # Harmony Blockchain Sync Alerts
 
 # vStats Alerts
-This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then a OUT OF SYNC ALERT will be sent. You may also setup an FULLY SYNCED ALERT to occur a set number of times per 24 hours to confirm nodes are fully synced.
+This is an automated script that will periodically check your node block height against the blockchain. If there is a difference then a OUT OF SYNC ALERT will be sent. You may also setup an IN SYNC ALERT to occur a set number of times per 24 hours to confirm nodes are fully synced.
 
 If you are installing this on a newly created server which is still syncing to the blockchain then you may wish to pause the script after its installed or lower the frequency of the checks (in the .env file). Otherwise you will get frequent out of sync alerts until your caught up again. 
 
@@ -13,7 +13,7 @@ Remote Epoch 796: 20441501
 Difference: -120803
 ```
 
-Example FULLY SYNCED ALERT:
+Example IN SYNC ALERT:
 ```
 🔶 Shard 3 Synced -- master-server 🔶
 ```
@@ -47,12 +47,11 @@ Rename .env.example to .env and edit the following variables:
 
 > SHARD: Add your chosen shard
 
+> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and if behind send an alert
+
+> FULLY_SYNCED_NOTIFICATIONS_EVERY_X_HOURS: Define how often per x hours you would like an alert if you are fully synced. 0 = No status notifications
+
 > HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
-
-> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and send an alert if behind
-
-> FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
-
 
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
