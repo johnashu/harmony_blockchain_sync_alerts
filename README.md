@@ -29,7 +29,7 @@ cd harmony_blockchain_sync_alerts
 To update use `git pull`
 
 ### 2) Get a token
-Send the command `/serversynctoken` to the @vStatsBot on telegram to get your token.
+Send the command `/token` to the @vStatsBot on telegram to get your token.
 
 Copy the token, as message on telegram will auto delete after 60 seconds.
 
