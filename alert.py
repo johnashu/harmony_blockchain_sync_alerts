@@ -38,8 +38,8 @@ def run():
 
                     # if lower blocks on shard 0
                     if (
-                        shard_0_blocks <= -10 
-                        #shard_0_blocks <= -10 or shard_0_blocks >= 10
+                        shard_0_blocks <= -20 
+                        #shard_0_blocks <= -20 or shard_0_blocks >= 10
                     ):  # Allow 10 block swing due to API lag between calls
                         alerts.build_send_error_message(
                             0,
@@ -55,8 +55,8 @@ def run():
                     if envs.SHARD > 0:
                         # if lower blocks on shard 3
                         if (
-                            shard_n_blocks <= -10 
-                            #shard_n_blocks <= -10 or shard_n_blocks >= 10
+                            shard_n_blocks <= -20 
+                            #shard_n_blocks <= -20 or shard_n_blocks >= 10
                         ):  # Allow 10 block swing due to API lag between calls
                             alerts.build_send_error_message(
                                 envs.SHARD, local_data_shard, remote_data_shard, shard_n_blocks
