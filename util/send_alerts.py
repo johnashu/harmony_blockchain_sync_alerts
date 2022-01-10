@@ -31,7 +31,7 @@ class Alerts(AlertsBase):
 
     def generic_error(self, e: str):
         self.send_alert(
-            "Sync Script Error",
+            "Sync Script Error -- {self.hostname}",
             e,
             # f"Alert author\n\nError Message :: {e}",
             "danger",
