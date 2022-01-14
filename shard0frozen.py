@@ -23,7 +23,7 @@ def run_stuck_check():
                 if number == current_block:
                     alerts.send_alert(
                         "SHARD0 Stuck",
-                        f"Shard0 is Stuck on Block [ {number} ] ",
+                        f"Shard0 is Stuck at Block [ {number} ] on Node {hostname}",
                         "stuck",
                         log.info,
                         f"Shard0 is Stuck on Block [ {number} ] ",
