@@ -42,7 +42,10 @@ sudo apt install python3-pip
 pip3 install -r requirements.txt
 ```
 Rename .env.example to .env and edit the following variables:
-
+```
+cp .env.example .env
+nano .env
+```
 > VSTATS_TOKEN: Add your token from vstats 
 
 > SHARD: Add your chosen shard
