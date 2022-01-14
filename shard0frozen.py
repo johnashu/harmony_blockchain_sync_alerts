@@ -17,20 +17,19 @@ def run_stuck_check():
 
             if not res:
                 alerts.generic_error(shard0_latest_headers)
-            else:
-                if not alert_sent:
-                    number = int(shard0_latest_headers["beacon-chain-header"]["number"], 16)
-                    log.info(f"number = {number}\ncurrent_block = {current_block}")
-                    log.info(f"number == current_block  ::  {number == current_block}")
-                    if number == current_block:
-                        alerts.send_alert(
-                            "SHARD0 Stuck",
-                            f"Shard0 is Stuck at Block [ {number} ] on Node {hostname}",
-                            "stuck",
-                            log.info,
-                            f"Shard0 is Stuck on Block [ {number} ] ",
-                        )
-                        alert_sent = True
+            else:                
+                number = int(shard0_latest_headers["beacon-chain-header"]["number"], 16)
+                log.info(f"number = {number}\ncurrent_block = {current_block}")
+                log.info(f"number == current_block  ::  {number == current_block}")
+                if (number == current_block) and not alert_sent:
+                    alerts.send_alert(
+                        "SHARD0 Stuck",
+                        f"Shard0 is Stuck at Block [ {number} ] on Node {hostname}",
+                        "stuck",
+                        log.info,
+                        f"Shard0 is Stuck on Block [ {number} ] ",
+                    )
+                    alert_sent = True
                 else:
                     current_block = number
                     alert_sent = False
