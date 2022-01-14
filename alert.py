@@ -33,7 +33,7 @@ def run(times_sent: dict):
                 time_check = datetime.datetime.now()
                 time_calc = (time_check - start_time).seconds
 
-                if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60):
+                if time_calc >= int(envs.RUN_EVERY_X_MINUTES):
                     start_time = time_check
                     if envs.SHARD == 0:
                         remote_data_shard = remote_data_shard_0

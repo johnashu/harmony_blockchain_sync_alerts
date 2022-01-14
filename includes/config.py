@@ -37,7 +37,7 @@ for x in times_sorted:
     ) and 0 in times_sorted:
         times_sorted.remove(0)
 
-times_sent = {x: False for x in times_sorted}
+times_sent = {str(x): False for x in times_sorted}
 
 if FULLY_SYNCED_NOTIFICATIONS_EVERY_X_HOURS > 0:
     FULLY_SYNCED_NOTIFICATIONS = True
