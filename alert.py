@@ -33,7 +33,7 @@ def run(times_sent: dict):
                 time_check = datetime.datetime.now()
                 time_calc = (time_check - start_time).seconds
 
-                if time_calc >= int(envs.RUN_EVERY_X_MINUTES):
+                if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60):
                     start_time = time_check
                     if envs.SHARD == 0:
                         remote_data_shard = remote_data_shard_0
@@ -98,7 +98,7 @@ def run(times_sent: dict):
             log.error(f"Please fix me!")
 
         # Delay by x seconds
-        sleep(0.1)
+        sleep(FROZEN_SLEEP)
         # sleep(2)
         # Hot reload Env
         envs.load_envs()
