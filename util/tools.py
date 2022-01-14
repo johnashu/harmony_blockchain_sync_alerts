@@ -1,5 +1,5 @@
 import subprocess
-
+from includes.config import times, datetime
 
 def process(cmd: str) -> subprocess:
     o, e = subprocess.Popen(
@@ -49,3 +49,17 @@ def flatten(d: dict) -> None:
         except AttributeError as e:
             pass
     return out
+
+
+def send_synced_notification(times_sent: dict) -> tuple:
+    send_happy_alert = False
+    now = datetime.datetime.now()    
+    h = now.hour
+    if h in times and not times_sent[h]:
+        times_sent[h] = True
+        send_happy_alert = True
+        if all([times_sent[x] for x in times_sent]):
+            times_sent = {
+                    x: False for x in times
+                }
+    return times_sent, send_happy_alert
