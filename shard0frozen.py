@@ -8,6 +8,7 @@ from util.send_alerts import Alerts
 
 def run_stuck_check():
     current_block = 0
+    alert_sent = False
     while True:
         try:
             log.info(f"Run shard0 check")
@@ -17,19 +18,22 @@ def run_stuck_check():
             if not res:
                 alerts.generic_error(shard0_latest_headers)
             else:
-                number = int(shard0_latest_headers["beacon-chain-header"]["number"], 16)
-                log.info(f"number = {number}\ncurrent_block = {current_block}")
-                log.info(f"number == current_block  ::  {number == current_block}")
-                if number == current_block:
-                    alerts.send_alert(
-                        "SHARD0 Stuck",
-                        f"Shard0 is Stuck at Block [ {number} ] on Node {hostname}",
-                        "stuck",
-                        log.info,
-                        f"Shard0 is Stuck on Block [ {number} ] ",
-                    )
+                if not alert_sent:
+                    number = int(shard0_latest_headers["beacon-chain-header"]["number"], 16)
+                    log.info(f"number = {number}\ncurrent_block = {current_block}")
+                    log.info(f"number == current_block  ::  {number == current_block}")
+                    if number == current_block:
+                        alerts.send_alert(
+                            "SHARD0 Stuck",
+                            f"Shard0 is Stuck at Block [ {number} ] on Node {hostname}",
+                            "stuck",
+                            log.info,
+                            f"Shard0 is Stuck on Block [ {number} ] ",
+                        )
+                        alert_sent = True
                 else:
                     current_block = number
+                    alert_sent = False
 
         except Exception as e:
             alerts.generic_error(e)
