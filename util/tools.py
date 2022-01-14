@@ -51,15 +51,17 @@ def flatten(d: dict) -> None:
     return out
 
 
-def send_synced_notification(times_sent: dict) -> tuple:
-    send_happy_alert = False
-    now = datetime.datetime.now()    
-    h = now.hour
-    if h in times and not times_sent[h]:
-        times_sent[h] = True
-        send_happy_alert = True
+def check_hours_alert(function_to_decorate):
+    def wrapper(times_sent, _send_alert = False):
+        now = datetime.datetime.now()    
+        h = now.hour
+        if h in times and not times_sent[h]:
+            times_sent[h] = True
+            _send_alert = True
+
         if all([times_sent[x] for x in times_sent]):
             times_sent = {
                     x: False for x in times
                 }
-    return times_sent, send_happy_alert
+        return function_to_decorate(times_sent, _send_alert = _send_alert)
+    return wrapper

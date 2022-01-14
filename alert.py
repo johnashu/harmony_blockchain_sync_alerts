@@ -76,10 +76,8 @@ def run():
             log.error(e)
             log.error(f"Please fix me!")
 
-        # Add to count
-        alerts.LOOP_COUNT += 1
         # Delay by x seconds
-        sleep(envs.RUN_EVERY_X_MINUTES * 60)
+        sleep(10)
         # sleep(2)
         # Hot reload Env
         envs.load_envs()

@@ -2,6 +2,7 @@ import logging as log
 
 from bases.alerts_base import AlertsBase
 
+from util.tools import check_hours_alert
 
 class Alerts(AlertsBase):
     def build_send_error_message(self, shard: int, *a, **kw) -> None:
@@ -31,7 +32,7 @@ class Alerts(AlertsBase):
 
     def generic_error(self, e: str):
         self.send_alert(
-            "Sync Script Error -- {self.hostname}",
+            f"Sync Script Error -- {self.hostname}",
             e,
             # f"Alert author\n\nError Message :: {e}",
             "danger",
@@ -39,12 +40,9 @@ class Alerts(AlertsBase):
             f"Sending ERROR Alert..ERROR  ::  {e}",
         )
 
-    def happy_alert(self, shard: int):
-        log.info(self.LOOP_COUNT)
-        if self.FULLY_SYNCED_NOTIFICATIONS and (
-            self.LOOP_COUNT % self.FULLY_SYNCED_NOTIFICATION_LOOP_COUNT == 0
-            or self.LOOP_COUNT == 0
-        ):
+    @check_hours_alert
+    def happy_alert(self, shard: int, times_sent: dict, _send_alert: bool = False) -> dict:
+        if self.FULLY_SYNCED_NOTIFICATIONS and _send_alert:
             self.send_alert(
                 f"Shard {shard} Synced -- {self.hostname}",
                 f"",
@@ -52,3 +50,4 @@ class Alerts(AlertsBase):
                 log.info,
                 f"Shard {shard} Synced -- {self.hostname}",
             )
+        return times_sent
