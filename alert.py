@@ -98,8 +98,7 @@ def run(times_sent: dict):
             log.error(f"Please fix me!")
 
         # Delay by x seconds
-        sleep(FROZEN_SLEEP)
-        # sleep(2)
+        sleep(envs.FROZEN_SLEEP)
         # Hot reload Env
         envs.load_envs()
 

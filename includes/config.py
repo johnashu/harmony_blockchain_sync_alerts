@@ -38,5 +38,3 @@ alerts_context = dict(
     hostname=hostname,
     FULLY_SYNCED_NOTIFICATIONS=FULLY_SYNCED_NOTIFICATIONS,
 )
-
-FROZEN_SLEEP = 30
