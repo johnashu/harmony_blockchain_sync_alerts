@@ -43,6 +43,15 @@ pip3 install -r requirements.txt
 ```
 Rename .env.example to .env and edit the following variables:
 
+Alternatively copy and edit with
+
+```
+cp .env.example .env
+nano .env
+```
+
+* Edit the file and use `CTRL + X` then `y` to save
+
 > VSTATS_TOKEN: Add your token from vstats 
 
 > SHARD: Add your chosen shard

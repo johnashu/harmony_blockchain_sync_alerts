@@ -42,3 +42,10 @@ alerts_context = dict(
     FULLY_SYNCED_NOTIFICATION_LOOP_COUNT=FULLY_SYNCED_NOTIFICATION_LOOP_COUNT,
     FULLY_SYNCED_NOTIFICATIONS=FULLY_SYNCED_NOTIFICATIONS,
 )
+
+
+frozen_cmd = (
+    """./hmy blockchain latest-headers | jq .result | jq '.["beacon-chain-header"]'  | jq -r .number | xargs printf "%d\n"""
+    ""
+)
+FROZEN_SLEEP = 10

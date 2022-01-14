@@ -16,12 +16,14 @@ def run():
                 alerts.generic_error(remote_data_shard_0)
             else:
                 if envs.SHARD == 0:
-                    remote_data_shard = remote_data_shard_0                    
+                    remote_data_shard = remote_data_shard_0
                 else:
-                    res, remote_data_shard = process_command(latest_headers(s=envs.SHARD))                    
+                    res, remote_data_shard = process_command(
+                        latest_headers(s=envs.SHARD)
+                    )
                 if not res:
                     alerts.generic_error(remote_data_shard)
-                else:  
+                else:
                     # get local server stats
                     _, local_data_shard = process_command(latest_headers())
 
@@ -57,7 +59,10 @@ def run():
                             shard_n_blocks <= -10 or shard_n_blocks >= 10
                         ):  # Allow 10 block swing due to API lag between calls
                             alerts.build_send_error_message(
-                                envs.SHARD, local_data_shard, remote_data_shard, shard_n_blocks
+                                envs.SHARD,
+                                local_data_shard,
+                                remote_data_shard,
+                                shard_n_blocks,
                             )
                         else:
                             alerts.happy_alert(envs.SHARD)

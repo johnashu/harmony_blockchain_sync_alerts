@@ -29,9 +29,9 @@ class Alerts(AlertsBase):
             return msg
         return html
 
-    def generic_error(self, e: str):
+    def generic_error(self, e: str, title: str = "Sync Script Error"):
         self.send_alert(
-            "Sync Script Error",
+            title,
             e,
             # f"Alert author\n\nError Message :: {e}",
             "danger",
