@@ -6,7 +6,7 @@ from util.connect import connect_to_api
 from util.send_alerts import Alerts
 
 
-def run():
+def run(times_sent: dict):
     start_time = datetime.datetime.now()
     current_block = 0
     alert_sent = False
@@ -19,10 +19,15 @@ def run():
                 alerts.generic_error(remote_data_shard_0)
             else:
                 # // Check Shard 0 is not stuck
-                number = int(remote_data_shard_0["beacon-chain-header"]["number"], 16)
-                current_block, alert_sent = alerts.check_shard0_stuck(
-                    number, current_block, alert_sent
-                )
+                res, main_rpc_data = process_command(latest_headers())
+                if not res:
+                    alerts.generic_error(main_rpc_data)
+                else:
+
+                    number = int(main_rpc_data["beacon-chain-header"]["number"], 16)
+                    current_block, alert_sent = alerts.check_shard0_stuck(
+                        number, current_block, alert_sent
+                    )
 
                 # is it time to check?
                 time_check = datetime.datetime.now()
@@ -93,7 +98,7 @@ def run():
             log.error(f"Please fix me!")
 
         # Delay by x seconds
-        sleep(10)
+        sleep(0.1)
         # sleep(2)
         # Hot reload Env
         envs.load_envs()
@@ -101,7 +106,7 @@ def run():
 
 if __name__ == "__main__":
     alerts = Alerts(VSTATS_API, connect_to_api, **alerts_context)
-    run()
+    run(times_sent)
 
     # alerts.send_alert(
     #     "TEST",

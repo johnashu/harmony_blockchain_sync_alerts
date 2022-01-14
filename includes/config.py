@@ -12,7 +12,7 @@ stdout_handler = logging.StreamHandler(sys.stdout)
 handlers = [file_handler, stdout_handler]
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] <%(funcName)s> %(message)s",
+    format="%(asctime)s [%(levelname)s] <%(funcName)s : %(lineno)s> %(message)s",
     handlers=handlers,
     datefmt="%d-%m-%Y %H:%M:%S",
 )
