@@ -12,20 +12,24 @@ def run_stuck_check():
         try:
             log.info(f"Run shard0 check")
             # get remote stats for shard 0, then the #'d shard, if it's 0 just make it the same.
-            res, shard0_latest_headers = process_command(frozen_cmd)
+            res, shard0_latest_headers = process_command(latest_headers())
+
             if not res:
                 alerts.generic_error(shard0_latest_headers)
             else:
-                if shard0_latest_headers == current_block: 
+                number = int(shard0_latest_headers["beacon-chain-header"]["number"], 16)
+                log.info(f"number = {number}\ncurrent_block = {current_block}")
+                log.info(f"number == current_block  ::  {number == current_block}")
+                if number == current_block:
                     alerts.send_alert(
                         "SHARD0 Stuck",
-                        f"Shard0 is Stuck on Block [ {shard0_latest_headers} ] ",
+                        f"Shard0 is Stuck on Block [ {number} ] ",
                         "stuck",
                         log.info,
-                        f"Shard0 is Stuck on Block [ {shard0_latest_headers} ] ",
+                        f"Shard0 is Stuck on Block [ {number} ] ",
                     )
                 else:
-                    current_block = shard0_latest_headers
+                    current_block = number
 
         except Exception as e:
             alerts.generic_error(e)
