@@ -2,8 +2,6 @@ import logging as log
 
 from bases.alerts_base import AlertsBase
 
-from util.tools import check_hours_alert
-
 
 class Alerts(AlertsBase):
     def build_send_error_message(self, shard: int, *a, **kw) -> None:
@@ -33,7 +31,7 @@ class Alerts(AlertsBase):
 
     def generic_error(self, e: str):
         self.send_alert(
-            f"Sync Script Error -- {self.hostname}",
+            "Sync Script Error -- {self.hostname}",
             e,
             # f"Alert author\n\nError Message :: {e}",
             "danger",
@@ -41,11 +39,12 @@ class Alerts(AlertsBase):
             f"Sending ERROR Alert..ERROR  ::  {e}",
         )
 
-    @check_hours_alert
-    def happy_alert(
-        self, shard: int, times_sent: dict, _send_alert: bool = False
-    ) -> dict:
-        if self.FULLY_SYNCED_NOTIFICATIONS and _send_alert:
+    def happy_alert(self, shard: int):
+        log.info(self.LOOP_COUNT)
+        if self.FULLY_SYNCED_NOTIFICATIONS and (
+            self.LOOP_COUNT % self.FULLY_SYNCED_NOTIFICATION_LOOP_COUNT == 0
+            or self.LOOP_COUNT == 0
+        ):
             self.send_alert(
                 f"Shard {shard} Synced -- {self.hostname}",
                 f"",
@@ -53,22 +52,3 @@ class Alerts(AlertsBase):
                 log.info,
                 f"Shard {shard} Synced -- {self.hostname}",
             )
-        return times_sent
-
-    def check_shard0_stuck(
-        self, number: int, current_block: int, alert_sent: bool
-    ) -> tuple:
-        if number == current_block:
-            if not alert_sent:
-                self.send_alert(
-                    "SHARD0 Stuck",
-                    f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname}",
-                    "stuck",
-                    log.info,
-                    f"Shard0 is Stuck on Block [ {number} ] ",
-                )
-                alert_sent = True
-        else:
-            current_block = number
-            alert_sent = False
-        return current_block, alert_sent
