@@ -1,4 +1,5 @@
 import subprocess
+from includes.config import times, datetime
 
 
 def process(cmd: str) -> subprocess:
@@ -49,3 +50,19 @@ def flatten(d: dict) -> None:
         except AttributeError as e:
             pass
     return out
+
+
+def check_hours_alert(function_to_decorate):
+    def wrapper(self, shard, times_sent, _send_alert=False):
+        now = datetime.datetime.now()
+        h = str(now.hour)
+        if int(h) in times:
+            if not times_sent[h]:
+                times_sent[h] = True
+                _send_alert = True
+        if all([times_sent[x] for x in times_sent]):
+            times_sent = {str(x): False for x in times}
+
+        return function_to_decorate(self, shard, times_sent, _send_alert=_send_alert)
+
+    return wrapper
