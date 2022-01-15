@@ -56,7 +56,7 @@ nano .env
 
 > FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
 
-> FROZEN_SLEEP: Time in seconds to sleep between checking for shard0 being frozen.  Once a message is sent, it will not alert until the user restarts the script.
+> FROZEN_SLEEP: Time in seconds to sleep between checking for shard0 being frozen.  Once a message is sent, it will not alert again until the user restarts the script.
 
 
 ### 4) Test Script 
