@@ -56,6 +56,8 @@ nano .env
 
 > FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
 
+> FROZEN_SLEEP: Time to sleep between checking for shard0 being frozen.
+
 
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
