@@ -2,7 +2,7 @@ import sys
 import logging
 import socket
 
-hostname = socket.gethostname()
+server_hostname = socket.gethostname()
 
 from includes.config_utils import *
 
@@ -35,6 +35,6 @@ if FULLY_SYNCED_NOTIFICATIONS_EVERY_X_HOURS > 0:
 alerts_context = dict(
     envs=envs,
     LOOP_COUNT=0,
-    hostname=hostname,
+    hostname=server_hostname,
     FULLY_SYNCED_NOTIFICATIONS=FULLY_SYNCED_NOTIFICATIONS,
 )

@@ -1,6 +1,5 @@
 import logging as log
 
-
 class AlertsBase:
     def __init__(self, VSTATS_API: str, connect_to_api: object, **kwargs) -> None:
         self.VSTATS_API = VSTATS_API
@@ -13,6 +12,7 @@ class AlertsBase:
             "alert-type": alert_type,
             "subject": subject,
             "message": msg,
+            "hostname": self.hostname
         }
         full, _, _ = self.connect_to_api("", self.VSTATS_API, "", j=j)
         log.info(full)
