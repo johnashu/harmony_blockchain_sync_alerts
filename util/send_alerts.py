@@ -62,7 +62,7 @@ class Alerts(AlertsBase):
             if not alert_sent:
                 self.send_alert(
                     "SHARD0 Stuck",
-                    f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname} after {self.envs.FROZEN_SLEEP}\nRestart script if you wish for this alert to continue",
+                    f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname} after {self.envs.FROZEN_SLEEP} seconds\nRestart script if you wish for this alert to continue",
                     "stuck",
                     log.info,
                     f"Shard0 is Stuck on Block [ {number} ] ",
