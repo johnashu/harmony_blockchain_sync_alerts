@@ -63,6 +63,8 @@ def check_hours_alert(function_to_decorate):
                     _send_alert = True
             if all([times_sent[x] for x in times_sent]):
                 times_sent = {str(x): False for x in times}
+        else:
+            _send_alert = True
 
         return function_to_decorate(
             self, shard, times_sent, _send_alert=_send_alert, first_run=first_run
