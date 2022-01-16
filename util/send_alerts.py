@@ -6,6 +6,7 @@ from util.tools import check_hours_alert
 
 from includes.config import envs
 
+
 class Alerts(AlertsBase):
     def build_send_error_message(self, shard: int, *a, **kw) -> None:
         err_msg = self.build_error_message(*a, **kw)
@@ -33,7 +34,7 @@ class Alerts(AlertsBase):
         return html
 
     def generic_error(self, e: str):
-        if envs.RECEIVE_ERROR_MSG == True:
+        if envs.RECEIVE_ERROR_MSG:
             self.send_alert(
                 f"Sync Script Error -- {self.hostname}",
                 e,
@@ -45,9 +46,9 @@ class Alerts(AlertsBase):
 
     @check_hours_alert
     def happy_alert(
-        self, shard: int, times_sent: dict,loop_count: int, _send_alert: bool = False, 
+        self, shard: int, times_sent: dict, _send_alert: bool = False
     ) -> dict:
-        if self.FULLY_SYNCED_NOTIFICATIONS and (_send_alert or loop_count == 1):
+        if self.FULLY_SYNCED_NOTIFICATIONS and _send_alert:
             self.send_alert(
                 f"Shard {shard} Synced -- {self.hostname}",
                 f"",
@@ -62,7 +63,7 @@ class Alerts(AlertsBase):
     ) -> tuple:
         if number == current_block:
             if not alert_sent:
-                if envs.SEND_STUCK_MSG == True:
+                if envs.SEND_STUCK_MSG:
                     self.send_alert(
                         "SHARD0 Stuck",
                         f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname} after {self.envs.FROZEN_SLEEP} seconds\nRestart script if you wish for this alert to continue",

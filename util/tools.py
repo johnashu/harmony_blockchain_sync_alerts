@@ -53,7 +53,7 @@ def flatten(d: dict) -> None:
 
 
 def check_hours_alert(function_to_decorate):
-    def wrapper(self, shard, times_sent,loop_count, _send_alert=False):
+    def wrapper(self, shard, times_sent, _send_alert=False):
         now = datetime.datetime.now()
         h = str(now.hour)
         if int(h) in times:
@@ -63,6 +63,6 @@ def check_hours_alert(function_to_decorate):
         if all([times_sent[x] for x in times_sent]):
             times_sent = {str(x): False for x in times}
 
-        return function_to_decorate(self, shard, times_sent,loop_count, _send_alert=_send_alert)
+        return function_to_decorate(self, shard, times_sent, _send_alert=_send_alert)
 
     return wrapper

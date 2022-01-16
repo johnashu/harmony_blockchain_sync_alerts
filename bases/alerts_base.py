@@ -1,5 +1,6 @@
 import logging as log
-from includes.config import hostname
+from includes.config import server_hostname
+
 
 class AlertsBase:
     def __init__(self, VSTATS_API: str, connect_to_api: object, **kwargs) -> None:
@@ -7,7 +8,9 @@ class AlertsBase:
         self.connect_to_api = connect_to_api
         self.__dict__.update(kwargs)
 
-    def send_to_vstats(self, subject: str, msg: str, alert_type: str, hostname: str = hostname) -> None:
+    def send_to_vstats(
+        self, subject: str, msg: str, alert_type: str, hostname: str = server_hostname
+    ) -> None:
         j = {
             "api_token": self.envs.VSTATS_TOKEN,
             "alert-type": alert_type,
