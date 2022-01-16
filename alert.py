@@ -35,7 +35,6 @@ def run(times_sent: dict):
                 time_calc = (time_check - start_time).seconds
 
                 if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60) or first_run:
-                    first_run = False
                     start_time = time_check
                     if envs.SHARD == 0:
                         res2 = True
@@ -98,6 +97,7 @@ def run(times_sent: dict):
                                 times_sent = alerts.happy_alert(
                                     envs.SHARD, times_sent, first_run=first_run
                                 )
+                    first_run = False
 
         except Exception as e:
             alerts.generic_error(e)
@@ -110,9 +110,15 @@ def run(times_sent: dict):
         envs.load_envs()
 
 
+def test_run(times_sent):
+    first_run = True
+    times_sent = alerts.happy_alert(envs.SHARD, times_sent, first_run=first_run)
+
+
 if __name__ == "__main__":
     alerts = Alerts(VSTATS_API, connect_to_api, **alerts_context)
     run(times_sent)
+    # test_run(times_sent)
 
     # alerts.send_alert(
     #     "TEST",

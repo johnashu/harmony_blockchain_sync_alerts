@@ -34,15 +34,14 @@ class Alerts(AlertsBase):
         return html
 
     def generic_error(self, e: str):
-        if envs.RECEIVE_ERROR_MSG:
-            self.send_alert(
-                f"Sync Script Error -- {self.hostname}",
-                e,
-                # f"Alert author\n\nError Message :: {e}",
-                "danger",
-                log.error,
-                f"Sending ERROR Alert..ERROR  ::  {e}",
-            )
+        self.send_alert(
+            f"Sync Script Error -- {self.hostname}",
+            e,
+            # f"Alert author\n\nError Message :: {e}",
+            "danger",
+            log.error,
+            f"Sending ERROR Alert..ERROR  ::  {e}",
+        )
 
     @check_hours_alert
     def happy_alert(

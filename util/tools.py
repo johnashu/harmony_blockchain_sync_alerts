@@ -53,7 +53,9 @@ def flatten(d: dict) -> None:
 
 
 def check_hours_alert(function_to_decorate):
-    def wrapper(self, shard, times_sent, _send_alert=False, first_run: bool = False):
+    def wrapper(
+        self, shard, times_sent, _send_alert: bool = False, first_run: bool = False
+    ):
         now = datetime.datetime.now()
         h = str(now.hour)
         if not first_run:
