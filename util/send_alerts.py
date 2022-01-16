@@ -60,13 +60,14 @@ class Alerts(AlertsBase):
     ) -> tuple:
         if number == current_block:
             if not alert_sent:
-                self.send_alert(
-                    "SHARD0 Stuck",
-                    f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname}",
-                    "stuck",
-                    log.info,
-                    f"Shard0 is Stuck on Block [ {number} ] ",
-                )
+                if envs.SEND_STUCK_MSG == True:
+                    self.send_alert(
+                        "SHARD0 Stuck",
+                        f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname}",
+                        "stuck",
+                        log.info,
+                        f"Shard0 is Stuck on Block [ {number} ] ",
+                    )
                 alert_sent = True
         else:
             current_block = number
