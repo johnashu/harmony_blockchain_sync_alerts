@@ -1,6 +1,7 @@
 import sys
 import logging
 import socket
+import datetime
 
 server_hostname = socket.gethostname()
 
@@ -23,8 +24,6 @@ envs = Envs()
 VSTATS_API = "https://vstats.one/api/serversync"
 FULLY_SYNCED_NOTIFICATIONS = False
 
-import datetime
-
 FULLY_SYNCED_NOTIFICATIONS_EVERY_X_HOURS = 24 // envs.FULLY_SYNCED_NOTIFICATIONS_PER_DAY
 
 times, times_sent = parse_times(FULLY_SYNCED_NOTIFICATIONS_EVERY_X_HOURS)
@@ -34,7 +33,6 @@ if FULLY_SYNCED_NOTIFICATIONS_EVERY_X_HOURS > 0:
 
 alerts_context = dict(
     envs=envs,
-    LOOP_COUNT=0,
     hostname=server_hostname,
     FULLY_SYNCED_NOTIFICATIONS=FULLY_SYNCED_NOTIFICATIONS,
 )

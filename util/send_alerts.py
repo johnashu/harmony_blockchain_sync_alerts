@@ -4,6 +4,8 @@ from bases.alerts_base import AlertsBase
 
 from util.tools import check_hours_alert
 
+from includes.config import envs
+
 
 class Alerts(AlertsBase):
     def build_send_error_message(self, shard: int, *a, **kw) -> None:
@@ -32,14 +34,15 @@ class Alerts(AlertsBase):
         return html
 
     def generic_error(self, e: str):
-        self.send_alert(
-            f"Sync Script Error -- {self.hostname}",
-            e,
-            # f"Alert author\n\nError Message :: {e}",
-            "danger",
-            log.error,
-            f"Sending ERROR Alert..ERROR  ::  {e}",
-        )
+        if envs.RECEIVE_ERROR_MSG:
+            self.send_alert(
+                f"Sync Script Error -- {self.hostname}",
+                e,
+                # f"Alert author\n\nError Message :: {e}",
+                "danger",
+                log.error,
+                f"Sending ERROR Alert..ERROR  ::  {e}",
+            )
 
     @check_hours_alert
     def happy_alert(
@@ -60,13 +63,14 @@ class Alerts(AlertsBase):
     ) -> tuple:
         if number == current_block:
             if not alert_sent:
-                self.send_alert(
-                    "SHARD0 Stuck",
-                    f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname} after {self.envs.FROZEN_SLEEP} seconds\nRestart script if you wish for this alert to continue",
-                    "stuck",
-                    log.info,
-                    f"Shard0 is Stuck on Block [ {number} ] ",
-                )
+                if envs.SEND_STUCK_MSG:
+                    self.send_alert(
+                        "SHARD0 Stuck",
+                        f"Shard0 is Stuck at Block [ {number} ] on Node {self.hostname} after {self.envs.FROZEN_SLEEP} seconds\nRestart script if you wish for this alert to continue",
+                        "stuck",
+                        log.info,
+                        f"Shard0 is Stuck on Block [ {number} ] ",
+                    )
                 alert_sent = True
         else:
             current_block = number

@@ -9,6 +9,7 @@ from util.send_alerts import Alerts
 def run(times_sent: dict):
     start_time = datetime.datetime.now()
     current_block = 0
+    first_run = True
     alert_sent = False
     while True:
         try:
@@ -33,9 +34,11 @@ def run(times_sent: dict):
                 time_check = datetime.datetime.now()
                 time_calc = (time_check - start_time).seconds
 
-                if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60):
+                if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60) or first_run:
+                    first_run = False
                     start_time = time_check
                     if envs.SHARD == 0:
+                        res2 = True
                         remote_data_shard = remote_data_shard_0
                     else:
                         res2, remote_data_shard = process_command(

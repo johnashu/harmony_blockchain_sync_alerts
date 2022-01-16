@@ -48,16 +48,23 @@ nano .env
 ```
 > VSTATS_TOKEN: Add your token from vstats 
 
-> SHARD: Add your chosen shard
+> SHARD:3 Add your chosen shard
 
-> HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
+> HARMONY_FOLDER:"" Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
 
-> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and send an alert if behind
+> RUN_EVERY_X_MINUTES:30 Define in minutes how often you would like the script to run and send an alert if behind
 
-> FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
+> FULLY_SYNCED_NOTIFICATIONS_PER_DAY:1 Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
 
+<<<<<<< HEAD
 > FROZEN_SLEEP: Time in seconds to sleep between checking for shard0 being frozen.  Once a message is sent, it will not alert again until the user restarts the script.
+=======
+> SEND_STUCK_MSG=True # Check if Shard 0 is Stuck
+>>>>>>> b53f45301085d80af6565002c81b3375159e66e6
 
+> FROZEN_SLEEP=30 # Time to wait between checking for Shard0 being frozen. IN SECONDS
+
+> RECEIVE_ERROR_MSG=True #Harmony RPC may return fequent errors and not be able to pull data. Do you want to receive error messages?
 
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
