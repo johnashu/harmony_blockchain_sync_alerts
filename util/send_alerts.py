@@ -43,9 +43,9 @@ class Alerts(AlertsBase):
 
     @check_hours_alert
     def happy_alert(
-        self, shard: int, times_sent: dict, _send_alert: bool = False
+        self, shard: int, times_sent: dict,loop_count: int, _send_alert: bool = False, 
     ) -> dict:
-        if self.FULLY_SYNCED_NOTIFICATIONS and _send_alert:
+        if self.FULLY_SYNCED_NOTIFICATIONS and (_send_alert or loop_count == 1):
             self.send_alert(
                 f"Shard {shard} Synced -- {self.hostname}",
                 f"",

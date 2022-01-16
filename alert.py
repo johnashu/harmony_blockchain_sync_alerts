@@ -9,10 +9,13 @@ from util.send_alerts import Alerts
 def run(times_sent: dict):
     start_time = datetime.datetime.now()
     current_block = 0
+    loop_count = 0
     alert_sent = False
     while True:
         try:
             log.info(f"Run sync check")
+            loop_count += 1
+           
             # get remote stats for shard 0, then the #'d shard, if it's 0 just make it the same.
             res, remote_data_shard_0 = process_command(latest_headers(s=0))
             if not res:
@@ -23,17 +26,18 @@ def run(times_sent: dict):
                 if not res:
                     alerts.generic_error(main_rpc_data)
                 else:
-
+                
                     number = int(main_rpc_data["beacon-chain-header"]["number"], 16)
                     current_block, alert_sent = alerts.check_shard0_stuck(
                         number, current_block, alert_sent
                     )
-
+               
                 # is it time to check?
                 time_check = datetime.datetime.now()
                 time_calc = (time_check - start_time).seconds
-
-                if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60):
+                
+                if time_calc >= (envs.RUN_EVERY_X_MINUTES * 60)  or loop_count == 1:
+                    
                     start_time = time_check
                     if envs.SHARD == 0:
                         remote_data_shard = remote_data_shard_0
@@ -58,7 +62,7 @@ def run(times_sent: dict):
                             shard_n_blocks = int(
                                 do_maths_on_blocks(local_data_shard, remote_data_shard)
                             )
-
+                        
                         # if lower blocks on shard 0
                         if (
                             shard_0_blocks
@@ -73,7 +77,7 @@ def run(times_sent: dict):
                                 _type="beacon",
                             )
                         else:
-                            times_sent = alerts.happy_alert(0, times_sent)
+                            times_sent = alerts.happy_alert(0, times_sent,loop_count)
 
                         # only if not on shard 0.
                         if envs.SHARD > 0:
@@ -90,7 +94,7 @@ def run(times_sent: dict):
                                     shard_n_blocks,
                                 )
                             else:
-                                times_sent = alerts.happy_alert(envs.SHARD, times_sent)
+                                times_sent = alerts.happy_alert(envs.SHARD, times_sent,loop_count)
 
         except Exception as e:
             alerts.generic_error(e)
