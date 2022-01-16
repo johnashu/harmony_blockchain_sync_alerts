@@ -17,6 +17,7 @@ class AlertsBase:
         }
         full, _, _ = self.connect_to_api("", self.VSTATS_API, "", j=j)
         log.info(full)
+        log.info(hostname)
 
     def send_alert(
         self, subject: str, msg: str, _type: str, log_level: log, log_msg: str
