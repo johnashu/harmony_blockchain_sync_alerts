@@ -76,7 +76,9 @@ def run(times_sent: dict):
                                 _type="beacon",
                             )
                         else:
-                            times_sent = alerts.happy_alert(0, times_sent)
+                            times_sent = alerts.happy_alert(
+                                0, times_sent, first_run=first_run
+                            )
 
                         # only if not on shard 0.
                         if envs.SHARD > 0:
@@ -93,7 +95,9 @@ def run(times_sent: dict):
                                     shard_n_blocks,
                                 )
                             else:
-                                times_sent = alerts.happy_alert(envs.SHARD, times_sent)
+                                times_sent = alerts.happy_alert(
+                                    envs.SHARD, times_sent, first_run=first_run
+                                )
 
         except Exception as e:
             alerts.generic_error(e)
