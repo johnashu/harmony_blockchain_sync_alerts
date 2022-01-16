@@ -58,6 +58,11 @@ nano .env
 
 > FROZEN_SLEEP: Time to sleep between checking for shard0 being frozen.
 
+> SEND_STUCK_MSG=True # Check if Shard 0 is Stuck
+
+> FROZEN_SLEEP=30 # Time to wait between checking for Shard0 being frozen. IN SECONDS
+
+> RECEIVE_ERROR_MSG=True #Harmony RPC may return fequent errors and not be able to pull data. Do you want to receive error messages?
 
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
