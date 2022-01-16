@@ -4,6 +4,7 @@ from bases.alerts_base import AlertsBase
 
 from util.tools import check_hours_alert
 
+from includes.config import envs
 
 class Alerts(AlertsBase):
     def build_send_error_message(self, shard: int, *a, **kw) -> None:
@@ -32,14 +33,15 @@ class Alerts(AlertsBase):
         return html
 
     def generic_error(self, e: str):
-        self.send_alert(
-            f"Sync Script Error -- {self.hostname}",
-            e,
-            # f"Alert author\n\nError Message :: {e}",
-            "danger",
-            log.error,
-            f"Sending ERROR Alert..ERROR  ::  {e}",
-        )
+        if envs.RECEIVE_ERROR_MSG == True:
+            self.send_alert(
+                f"Sync Script Error -- {self.hostname}",
+                e,
+                # f"Alert author\n\nError Message :: {e}",
+                "danger",
+                log.error,
+                f"Sending ERROR Alert..ERROR  ::  {e}",
+            )
 
     @check_hours_alert
     def happy_alert(
