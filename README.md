@@ -48,15 +48,13 @@ nano .env
 ```
 > VSTATS_TOKEN: Add your token from vstats 
 
-> SHARD: Add your chosen shard
+> SHARD:3 Add your chosen shard
 
-> HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
+> HARMONY_FOLDER:"" Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
 
-> RUN_EVERY_X_MINUTES: Define in minutes how often you would like the script to run and send an alert if behind
+> RUN_EVERY_X_MINUTES:30 Define in minutes how often you would like the script to run and send an alert if behind
 
-> FULLY_SYNCED_NOTIFICATIONS_PER_DAY: Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
-
-> FROZEN_SLEEP: Time to sleep between checking for shard0 being frozen.
+> FULLY_SYNCED_NOTIFICATIONS_PER_DAY:1 Define how often per 24 hours you would like an alert if you are fully synced. 0 = No status notifications
 
 > SEND_STUCK_MSG=True # Check if Shard 0 is Stuck
 
